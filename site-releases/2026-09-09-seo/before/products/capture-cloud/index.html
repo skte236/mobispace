@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+<!-- Google Analytics + cookie consent -->
+<script src="/js/consent.js"></script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Mobispace Capture Cloud | API接続対応360度画像プラットフォーム | モビスペース株式会社</title>
+    <meta name="description" content="Mobispace Capture Cloudは、日本の建設アプリと連携できるAPI接続対応の360度画像プラットフォームです。進捗チェッカー360連携で施工管理・進捗確認・異常検知までつなげます。">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://mobispace.jp/products/capture-cloud/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="モビスペース株式会社">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="Mobispace Capture Cloud | API接続対応360度画像プラットフォーム">
+    <meta property="og:description" content="日本の建設アプリとつながる360度画像プラットフォーム。進捗チェッカー360連携で、記録から施工管理まで一気通貫。">
+    <meta property="og:url" content="https://mobispace.jp/products/capture-cloud/">
+    <meta property="og:image" content="https://mobispace.jp/img/Mobispace_Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mobispace Capture Cloud | API接続対応360度画像プラットフォーム">
+    <meta name="twitter:description" content="日本の建設アプリと連携できる360度画像プラットフォーム。進捗チェッカー360連携で施工管理までつながります。">
+    <meta name="twitter:image" content="https://mobispace.jp/img/Mobispace_Logo.png">
+
+    <link rel="icon" href="/img/fabicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <style>
+        body.preload * { transition: none !important; }
+
+        .section-padding {
+            padding: clamp(72px, 10vw, 112px) 0;
+        }
+
+        .capture-hero {
+            position: relative;
+            overflow: hidden;
+            /* Pull up under the fixed header (no white band) and fill the whole
+               first viewport, growing downward. Content is vertically centered;
+               top padding clears the header so the kicker isn't clipped. */
+            margin-top: calc(var(--header-height) * -1);
+            min-height: calc(100vh + 120px);
+            display: flex;
+            align-items: center;
+            padding-top: calc(var(--header-height) + 48px);
+            padding-bottom: 64px;
+            background:
+                radial-gradient(circle at top left, rgba(31, 223, 188, 0.28), transparent 36%),
+                radial-gradient(circle at right center, rgba(21, 35, 98, 0.38), transparent 28%),
+                linear-gradient(135deg, #09111f 0%, #111b31 48%, #162868 100%);
+            color: #fff;
+        }
+        .capture-hero > .c-inner { width: 100%; }
+
+        .capture-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.82), transparent);
+            pointer-events: none;
+        }
+
+        .capture-hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+            gap: 44px;
+            align-items: center;
+        }
+
+        .capture-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #aaf8ee;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+        }
+
+        .capture-hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            color: #fff;
+        }
+
+        .capture-hero-lead {
+            max-width: 650px;
+            margin: 0 0 28px;
+            font-size: clamp(1.02rem, 1.8vw, 1.16rem);
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .capture-hero-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0 0 32px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .capture-hero-points li {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .capture-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .capture-button-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.24);
+            color: #fff;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .capture-button-secondary:hover {
+            color: #fff;
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .capture-panel {
+            position: relative;
+            padding: 28px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(12px);
+        }
+
+        .capture-panel-label {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: #9ef4e7;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
+
+        .capture-flow {
+            display: grid;
+            gap: 14px;
+        }
+
+        .capture-flow-step {
+            position: relative;
+            padding: 18px 18px 18px 62px;
+            border-radius: 18px;
+            background: rgba(8, 15, 28, 0.52);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .capture-flow-step strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #fff;
+            font-size: 1.04rem;
+        }
+
+        .capture-flow-step span {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.94rem;
+        }
+
+        .capture-flow-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #1FDFBC, #53f2d5);
+            color: #07131f;
+            font-weight: 700;
+        }
+
+        .capture-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .capture-stat {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .capture-stat strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #fff;
+            font-size: 1.55rem;
+            line-height: 1;
+        }
+
+        .capture-stat span {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.9rem;
+        }
+
+        .capture-title {
+            text-align: center;
+            margin-bottom: 54px;
+        }
+
+        .capture-title .tp-title_jp {
+            margin-bottom: 10px;
+        }
+
+        .capture-title h2 {
+            margin-bottom: 14px;
+        }
+
+        .capture-title p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #415468;
+            line-height: 1.9;
+        }
+
+        .capture-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .capture-feature-card,
+        .capture-reason-card,
+        .capture-step-card {
+            background: #fff;
+            border: 1px solid #e4ebf3;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 12px 28px rgba(15, 27, 45, 0.06);
+        }
+
+        .capture-feature-card i,
+        .capture-reason-card i,
+        .capture-step-card i {
+            font-size: 1.45rem;
+            color: #0d6973;
+            margin-bottom: 14px;
+        }
+
+        .capture-feature-card h3,
+        .capture-reason-card h3,
+        .capture-step-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: #0f1b2a;
+        }
+
+        .capture-feature-card p,
+        .capture-reason-card p,
+        .capture-step-card p {
+            margin: 0;
+            color: #45586d;
+            line-height: 1.8;
+        }
+
+        .capture-integration {
+            background:
+                radial-gradient(circle at top right, rgba(31, 223, 188, 0.16), transparent 28%),
+                linear-gradient(180deg, #f7fbff 0%, #eef5fb 100%);
+        }
+
+        .capture-integration-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+            gap: 34px;
+            align-items: start;
+        }
+
+        .capture-message-card {
+            background: #0f172a;
+            color: #fff;
+            border-radius: 28px;
+            padding: clamp(28px, 4vw, 40px);
+            box-shadow: 0 18px 48px rgba(8, 15, 28, 0.18);
+        }
+
+        .capture-message-card .tp-title_jp,
+        .capture-message-card h2,
+        .capture-message-card p,
+        .capture-message-card li {
+            color: #fff;
+        }
+
+        .capture-message-card h2 {
+            margin-bottom: 16px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+        }
+
+        .capture-message-card p {
+            margin: 0 0 22px;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.9;
+        }
+
+        .capture-logos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 0 0 26px;
+        }
+
+        .capture-logo-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 82px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed rgba(255, 255, 255, 0.22);
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .capture-logo-pill small {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.72rem;
+            font-weight: 400;
+        }
+
+        .capture-problem-list,
+        .capture-value-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .capture-problem-item,
+        .capture-value-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid #dfe8f1;
+            box-shadow: 0 10px 24px rgba(15, 27, 45, 0.05);
+        }
+
+        .capture-problem-item i {
+            color: #ff6e78;
+            margin-top: 4px;
+        }
+
+        .capture-value-item i {
+            color: #1ab89f;
+            margin-top: 4px;
+        }
+
+        .capture-problem-item strong,
+        .capture-value-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #122132;
+        }
+
+        .capture-problem-item p,
+        .capture-value-item p {
+            margin: 0;
+            color: #4d6176;
+            line-height: 1.8;
+        }
+
+        .capture-difference {
+            background: #fff;
+        }
+
+        .capture-difference-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 18px 42px rgba(15, 27, 45, 0.08);
+        }
+
+        .capture-difference-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        .capture-difference-table th,
+        .capture-difference-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e7edf5;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .capture-difference-table thead th {
+            color: #fff;
+            font-size: 1.02rem;
+        }
+
+        .capture-difference-table thead th:first-child {
+            background: #506174;
+            width: 32%;
+        }
+
+        .capture-difference-table thead th:nth-child(2) {
+            background: #7a8796;
+            width: 34%;
+        }
+
+        .capture-difference-table thead th:last-child {
+            background: linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+            width: 34%;
+        }
+
+        .capture-difference-table td:first-child {
+            background: #f8fbff;
+            font-weight: 700;
+            color: #23384b;
+        }
+
+        .capture-difference-table td:nth-child(2) {
+            color: #617487;
+        }
+
+        .capture-difference-table td:last-child {
+            color: #0d5f76;
+            font-weight: 700;
+        }
+
+        .capture-checker {
+            background: linear-gradient(135deg, rgba(31, 223, 188, 0.09), rgba(21, 35, 98, 0.08));
+        }
+
+        .capture-checker-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+            background: #fff;
+            border-radius: 26px;
+            padding: clamp(28px, 4vw, 42px);
+            box-shadow: 0 18px 44px rgba(15, 27, 45, 0.08);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .capture-checker-copy h2 {
+            margin-bottom: 18px;
+        }
+
+        .capture-checker-copy p {
+            margin: 0 0 20px;
+            color: #415468;
+            line-height: 1.9;
+        }
+
+        .capture-checker-list {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .capture-checker-list div {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #1d3146;
+            font-weight: 700;
+        }
+
+        .capture-checker-list i {
+            color: #1ab89f;
+            margin-top: 3px;
+        }
+
+        .capture-checker-visual {
+            background: linear-gradient(160deg, #09111f, #11224c 62%, #1FDFBC);
+            border-radius: 22px;
+            padding: 22px;
+            color: #fff;
+            min-height: 100%;
+        }
+
+        .capture-checker-visual strong {
+            display: block;
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .capture-checker-visual-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .capture-checker-tile {
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .capture-checker-tile span {
+            display: block;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .capture-checker-tile b {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .capture-reason-grid,
+        .capture-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .capture-cta {
+            background: linear-gradient(135deg, #0a1324 0%, #13244f 65%, #0e9584 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .capture-cta h2,
+        .capture-cta p {
+            color: #fff;
+        }
+
+        .capture-cta h2 {
+            margin-bottom: 16px;
+        }
+
+        .capture-cta p {
+            max-width: 760px;
+            margin: 0 auto 28px;
+            color: rgba(255, 255, 255, 0.84);
+            line-height: 1.9;
+        }
+
+        .capture-cta-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .capture-link-note {
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 1080px) {
+            .capture-hero-inner,
+            .capture-integration-grid,
+            .capture-checker-box {
+                grid-template-columns: 1fr;
+            }
+
+            .capture-feature-grid,
+            .capture-reason-grid,
+            .capture-flow-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 72px 0;
+            }
+
+            .c-inner {
+                padding: 0 20px;
+            }
+
+            .capture-hero-points,
+            .capture-hero-actions,
+            .capture-cta-actions {
+                flex-direction: column;
+            }
+
+            .capture-hero-actions a,
+            .capture-cta-actions a {
+                width: 100%;
+            }
+
+            .capture-stats,
+            .capture-feature-grid,
+            .capture-reason-grid,
+            .capture-flow-grid,
+            .capture-logos {
+                grid-template-columns: 1fr;
+            }
+
+            .capture-panel {
+                padding: 22px;
+            }
+
+            .capture-difference-table,
+            .capture-difference-table thead,
+            .capture-difference-table tbody,
+            .capture-difference-table tr,
+            .capture-difference-table th,
+            .capture-difference-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .capture-difference-table thead {
+                display: none;
+            }
+
+            .capture-difference-table td {
+                padding: 14px 18px;
+            }
+
+            .capture-difference-table td:first-child {
+                border-bottom: none;
+            }
+
+            .capture-difference-table td:nth-child(2) {
+                padding-top: 0;
+                border-bottom: none;
+            }
+
+            .capture-difference-table td:last-child {
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="subpage preload">
+
+<header class="h js-header" id="header-placeholder"></header>
+
+<section class="page-title-section capture-hero">
+    <div class="c-inner capture-hero-inner">
+        <div data-aos="fade-up">
+            <span class="capture-kicker">NEW PRODUCT | 360 IMAGE PLATFORM</span>
+            <h1>360°画像を、<br>施工管理のインフラへ。</h1>
+            <p class="capture-hero-lead">
+                Mobispace Capture Cloud は、API接続できる360度画像プラットフォームです。<br>
+                日本の建設アプリとつながり、現場データのハブとして機能します。<br>
+                進捗チェッカー360連携で、記録から施工管理まで一気通貫でつながります。
+            </p>
+            <ul class="capture-hero-points">
+                <li>API接続対応</li>
+                <li>日本の建設アプリ連携</li>
+                <li>進捗チェッカー360連携</li>
+            </ul>
+            <div class="capture-hero-actions">
+                <a href="/contact/" class="contact-cta-btn btn-animated">
+                    <span class="contact-cta-btn_label">お問い合わせ</span>
+                </a>
+                <a href="/products/progresschecker/" class="capture-button-secondary">進捗チェッカー360を見る</a>
+            </div>
+        </div>
+        <div class="capture-panel" data-aos="fade-up" data-aos-delay="120">
+            <span class="capture-panel-label">CAPTURE CLOUD FLOW</span>
+            <div class="capture-flow">
+                <div class="capture-flow-step" data-step="1">
+                    <strong>撮影</strong>
+                    <span>360°で現場を記録。現場の事実をそのまま残す。</span>
+                </div>
+                <div class="capture-flow-step" data-step="2">
+                    <strong>アップロード</strong>
+                    <span>クラウドに蓄積。案件ごとに時系列で整理。</span>
+                </div>
+                <div class="capture-flow-step" data-step="3">
+                    <strong>連携</strong>
+                    <span>既存の建設アプリへAPIで接続。データを分断しない。</span>
+                </div>
+                <div class="capture-flow-step" data-step="4">
+                    <strong>活用</strong>
+                    <span>進捗チェッカー360へ接続し、進捗確認・異常検知まで展開。</span>
+                </div>
+            </div>
+            <div class="capture-stats">
+                <div class="capture-stat">
+                    <strong>API</strong>
+                    <span>連携前提で設計</span>
+                </div>
+                <div class="capture-stat">
+                    <strong>360°</strong>
+                    <span>画像を一元管理</span>
+                </div>
+                <div class="capture-stat">
+                    <strong>AI</strong>
+                    <span>施工管理まで接続</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Visual -->
+<div style="margin: 60px auto; max-width: 1100px; border-radius: 16px; overflow: hidden; box-shadow: 0 14px 40px rgba(0,0,0,0.12);" data-aos="fade-up">
+    <img src="/img/cloud_capture/clooudcapture.png" alt="Capture Cloud プラットフォーム概要 - 現場キャプチャからクラウド管理・AI解析まで" style="width: 100%; height: auto; display: block;">
+</div>
+
+<section class="section-padding">
+    <div class="c-inner">
+        <div class="capture-title" data-aos="fade-up">
+            <p class="tp-title_jp">CAPABILITIES</p>
+            <h2 class="tp-title_en">できること</h2>
+            <p>記録で終わらせない。画像、連携、統合、AI活用までを1つの流れにします。</p>
+            <hr class="contact-divider">
+        </div>
+        <div class="capture-feature-grid">
+            <div class="capture-feature-card" data-aos="fade-up">
+                <i class="fas fa-globe-asia"></i>
+                <h3>360°画像管理</h3>
+                <p>現場の記録をクラウドに集約。案件ごと、工程ごとに見返せます。</p>
+            </div>
+            <div class="capture-feature-card" data-aos="fade-up" data-aos-delay="80">
+                <i class="fas fa-plug"></i>
+                <h3>API連携</h3>
+                <p>外部システム接続を前提に設計。後付けではない連携基盤です。</p>
+            </div>
+            <div class="capture-feature-card" data-aos="fade-up" data-aos-delay="160">
+                <i class="fas fa-layer-group"></i>
+                <h3>データ統合</h3>
+                <p>分散した現場データを束ね、画像を現場データのハブに変えます。</p>
+            </div>
+            <div class="capture-feature-card" data-aos="fade-up" data-aos-delay="240">
+                <i class="fas fa-robot"></i>
+                <h3>AI連携</h3>
+                <p>進捗チェッカー360に接続し、進捗確認や異常検知までつなげます。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding capture-integration">
+    <div class="c-inner">
+        <div class="capture-title" data-aos="fade-up">
+            <p class="tp-title_jp">API INTEGRATION</p>
+            <h2 class="tp-title_en">日本の建設アプリと、つながる。</h2>
+            <p>
+                日本の建設現場では、会社ごとに使うツールが違います。<br>
+                だからこそ、変えるより、つなぐ。Mobispace Capture Cloud はそのための設計です。
+            </p>
+            <hr class="contact-divider">
+        </div>
+        <div class="capture-integration-grid">
+            <div class="capture-message-card" data-aos="fade-up">
+                <p class="tp-title_jp">CONNECTIVITY FIRST</p>
+                <h2>現場のツールを、<br>分断させない。</h2>
+                <p>
+                    単なる画像管理ツールではありません。<br>
+                    Photoruction、SPIDERPLUS、いいやちょう、その他の建設DXツールとのAPI接続を前提に、
+                    現場データのハブとして機能する360度画像プラットフォームです。
+                </p>
+                <div class="capture-logos" aria-label="連携対象ロゴの仮配置">
+                    <div class="capture-logo-pill">
+                        Photoruction
+                        <small>仮ロゴ / replaceable</small>
+                    </div>
+                    <div class="capture-logo-pill">
+                        SPIDERPLUS
+                        <small>仮ロゴ / replaceable</small>
+                    </div>
+                    <div class="capture-logo-pill">
+                        いいやちょう
+                        <small>仮ロゴ / replaceable</small>
+                    </div>
+                    <div class="capture-logo-pill">
+                        Other Construction DX Tools
+                        <small>仮ロゴ / replaceable</small>
+                    </div>
+                </div>
+                <p>使っているツールを変えなくていい。そのまま、現場全体へ広げられます。</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="capture-problem-list">
+                    <div class="capture-problem-item">
+                        <i class="fas fa-unlink"></i>
+                        <div>
+                            <strong>現場のツールが分断されている</strong>
+                            <p>日本の建設現場では、元請け、協力会社、部門ごとに別のアプリが使われています。</p>
+                        </div>
+                    </div>
+                    <div class="capture-problem-item">
+                        <i class="fas fa-tools"></i>
+                        <div>
+                            <strong>各社が独自ツールを持っている</strong>
+                            <p>1社に合う仕組みだけでは、現場全体には広がりません。連携前提が必要です。</p>
+                        </div>
+                    </div>
+                    <div class="capture-problem-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>海外プロダクトは日本の現場に最適化されにくい</strong>
+                            <p>既存ツールとの連携が前提ではないため、導入が部分的に留まるケースが多くあります。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="capture-value-list" style="margin-top: 18px;">
+                    <div class="capture-value-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>MobispaceはAPI前提で設計</strong>
+                            <p>日本の現場に合わせた接続、データ統合、拡張ができます。</p>
+                        </div>
+                    </div>
+                    <div class="capture-value-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>画像を起点に、全体最適へ</strong>
+                            <p>現場記録を別システムへ受け渡し、業務を分断せずにつなげられます。</p>
+                        </div>
+                    </div>
+                    <div class="capture-value-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>OpenSpaceでは難しかった領域に対応</strong>
+                            <p>日本の建設アプリとつながる設計により、国内現場への実装を進めやすくします。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding capture-checker">
+    <div class="c-inner">
+        <div class="capture-checker-box" data-aos="fade-up">
+            <div class="capture-checker-copy">
+                <p class="tp-title_jp">PROGRESSCHECKER 360</p>
+                <h2>画像から、施工管理へ。</h2>
+                <p>
+                    Mobispace Capture Cloud を <a href="/products/progresschecker/">進捗チェッカー360</a> とつなぐことで、
+                    記録した360°画像が施工管理データに変わります。進捗確認、異常検知、記録活用まで一気通貫です。
+                </p>
+                <div class="capture-checker-list">
+                    <div><i class="fas fa-check"></i><span>画像 → 施工管理へつながる</span></div>
+                    <div><i class="fas fa-check"></i><span>進捗確認をAIで補助</span></div>
+                    <div><i class="fas fa-check"></i><span>異常検知で見落としを減らす</span></div>
+                    <div><i class="fas fa-check"></i><span>記録をそのまま活用できる</span></div>
+                </div>
+                <a href="/products/progresschecker/" class="contact-cta-btn">
+                    <span class="contact-cta-btn_label">進捗チェッカー360を見る</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding capture-difference">
+    <div class="c-inner">
+        <div class="capture-title" data-aos="fade-up">
+            <p class="tp-title_jp">WHY MOBISPACE</p>
+            <h2 class="tp-title_en">なぜMobispaceか</h2>
+            <p>導入して終わらない。既存業務に入っていける設計で、現場全体最適を目指します。</p>
+            <hr class="contact-divider">
+        </div>
+        <div class="capture-difference-wrap" data-aos="fade-up" data-aos-delay="100">
+            <table class="capture-difference-table">
+                <thead>
+                    <tr>
+                        <th>比較観点</th>
+                        <th>一般的な海外プロダクト</th>
+                        <th>Mobispace Capture Cloud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>設計思想</td>
+                        <td>単体利用が中心。既存ツール連携は限定的。</td>
+                        <td>連携前提。APIで周辺業務に組み込める。</td>
+                    </tr>
+                    <tr>
+                        <td>日本現場への適応</td>
+                        <td>日本独自の運用や商流に最適化しにくい。</td>
+                        <td>国内現場に合わせて拡張しやすい。</td>
+                    </tr>
+                    <tr>
+                        <td>導入の広がり</td>
+                        <td>一部部門での利用に留まりやすい。</td>
+                        <td>既存ツールを変えず、全体導入へ広げやすい。</td>
+                    </tr>
+                    <tr>
+                        <td>活用範囲</td>
+                        <td>画像の閲覧・管理で止まりやすい。</td>
+                        <td>画像管理から施工管理、AI活用までつながる。</td>
+                    </tr>
+                    <tr>
+                        <td>価格と拡張性</td>
+                        <td>仕様変更や個別対応が難しいことがある。</td>
+                        <td>現場に合わせて拡張しやすく、全体最適を狙える。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="c-inner">
+        <div class="capture-title" data-aos="fade-up">
+            <p class="tp-title_jp">CONCEPT</p>
+            <h2 class="tp-title_en">現場データを、つなぐ。</h2>
+            <p>記録から、連携へ。画像を孤立させず、現場全体で使えるデータに変えていきます。</p>
+            <hr class="contact-divider">
+        </div>
+        <div class="capture-reason-grid">
+            <div class="capture-reason-card" data-aos="fade-up">
+                <i class="fas fa-plug"></i>
+                <h3>API前提設計</h3>
+                <p>連携を後付けしない。最初から接続される前提で設計しています。</p>
+            </div>
+            <div class="capture-reason-card" data-aos="fade-up" data-aos-delay="80">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>日本最適化</h3>
+                <p>日本の建設現場にある運用差、ツール差、商流差に合わせやすい構造です。</p>
+            </div>
+            <div class="capture-reason-card" data-aos="fade-up" data-aos-delay="160">
+                <i class="fas fa-expand-arrows-alt"></i>
+                <h3>拡張性</h3>
+                <p>現場ごと、会社ごとに必要な接続や活用へ段階的に広げられます。</p>
+            </div>
+            <div class="capture-reason-card" data-aos="fade-up" data-aos-delay="240">
+                <i class="fas fa-yen-sign"></i>
+                <h3>価格</h3>
+                <p>全体導入を前提に、費用対効果を見ながら展開しやすい設計です。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="c-inner">
+        <div class="capture-title" data-aos="fade-up">
+            <p class="tp-title_jp">ONBOARDING FLOW</p>
+            <h2 class="tp-title_en">導入フロー</h2>
+            <p>現場で撮るところから、既存ツール活用まで。導入の流れはシンプルです。</p>
+            <hr class="contact-divider">
+        </div>
+        <div class="capture-flow-grid">
+            <div class="capture-step-card" data-aos="fade-up">
+                <i class="fas fa-camera-retro"></i>
+                <h3>1. 撮影</h3>
+                <p>360°カメラで現場を撮影し、記録を残します。</p>
+            </div>
+            <div class="capture-step-card" data-aos="fade-up" data-aos-delay="80">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>2. アップロード</h3>
+                <p>Capture Cloud に集約し、案件単位で管理します。</p>
+            </div>
+            <div class="capture-step-card" data-aos="fade-up" data-aos-delay="160">
+                <i class="fas fa-network-wired"></i>
+                <h3>3. 連携</h3>
+                <p>既存の建設アプリや社内システムへAPI接続します。</p>
+            </div>
+            <div class="capture-step-card" data-aos="fade-up" data-aos-delay="240">
+                <i class="fas fa-chart-line"></i>
+                <h3>4. 活用</h3>
+                <p>施工管理、進捗確認、異常検知に展開し、現場全体で使います。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding capture-cta">
+    <div class="c-inner" data-aos="fade-up">
+        <p class="tp-title_jp">CONTACT</p>
+        <h2>まずは、現場データをつなげてみませんか？</h2>
+        <p>
+            API接続できる360度画像プラットフォームとして、<br>
+            日本の建設アプリ連携から進捗チェッカー360活用までご相談いただけます。
+        </p>
+        <div class="capture-cta-actions">
+            <a href="/contact/" class="contact-cta-btn btn-animated">
+                <span class="contact-cta-btn_label">お問い合わせ</span>
+            </a>
+            <a href="/products/" class="capture-button-secondary">他のプロダクトを見る</a>
+        </div>
+        <p class="capture-link-note">関連リンク: <a href="/products/progresschecker/" style="color:#aaf8ee;">進捗チェッカー360</a> / <a href="/products/" style="color:#aaf8ee;">プロダクト一覧</a></p>
+    </div>
+</section>
+
+<footer class="f">
+    <button class="f-toTop js-toTop" aria-label="TOPに戻る">
+        <svg class="svg svg-arrow"><use xlink:href="#arrow"></use></svg>
+    </button>
+
+    <div class="f-main">
+        <div class="c-inner f-main-inner">
+            <a class="f-logo-main" href="/">
+                <img src="/img/blocks_logo_white.png" alt="Mobispace フッターロゴ">
+            </a>
+            <p class="f-address">
+                〒169-0051<br>
+                東京都新宿区西早稲田1-22-3 早稲田大学内
+            </p>
+            <p class="f-copyright-main">
+                © <span id="footer-year">2025</span> Mobispace Co., Ltd.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Mobispace Capture Cloud",
+  "description": "日本の建設アプリと連携できるAPI接続対応の360度画像プラットフォーム",
+  "url": "https://mobispace.jp/products/capture-cloud/"
+}
+</script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="/js/nav_ja.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+    window.addEventListener('load', () => document.body.classList.remove('preload'));
+
+    const toTop = document.querySelector('.js-toTop');
+    window.addEventListener('scroll', () => {
+        if (!toTop) return;
+        toTop.classList.toggle('is-visible', window.scrollY > 300);
+    });
+    if (toTop) {
+        toTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

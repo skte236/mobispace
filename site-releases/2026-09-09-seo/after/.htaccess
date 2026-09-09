@@ -1,0 +1,37 @@
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Canonical host: redirect legacy Wix www URLs to the primary domain
+RewriteCond %{HTTP_HOST} ^www\.mobispace\.jp$ [NC]
+RewriteRule ^ https://mobispace.jp%{REQUEST_URI} [R=301,L]
+
+
+# Contact form endpoint
+RewriteRule ^api/contact$ /api/contact.php [L,QSA]
+
+# Legacy URL redirects (301) — old flat .html pages now live as folders
+RewriteRule ^privacy\.html$ /privacy/ [R=301,L]
+RewriteRule ^contact\.html$ /contact/ [R=301,L]
+RewriteRule ^products\.html$ /products/ [R=301,L]
+RewriteRule ^dx\.html$ /dx/ [R=301,L]
+
+# Extensionless legacy path (missing trailing slash)
+RewriteRule ^contact$ /contact/ [R=301,L]
+
+# Discontinued products → product index
+RewriteRule ^microscope\.html$ /products/ [R=301,L]
+RewriteRule ^construction-checker/?$ /products/ [R=301,L]
+
+# Retired careers page → homepage
+RewriteRule ^recruit/?$ / [R=301,L]
+
+# MobiStudio restructured: bare product URL → marketing landing page
+# (detailed feature page now lives at /products/mobistudio/details/)
+RewriteRule ^products/mobistudio/?$ /products/mobistudio/landing/ [R=301,L]
+
+# Noise product renamed: Noise Watch → AI Noise Guard
+RewriteRule ^products/noise-watch/?$ /products/noise-guard/ [R=301,L]
+
+# Consolidate placeholder systems page into DX (2026-09-09)
+RewriteRule ^systems(?:/index\.html)?/?$ /dx/ [R=301,L]

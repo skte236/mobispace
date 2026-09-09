@@ -1,0 +1,3 @@
+/* Proposed typography alignment. Apply equally to both variants before starting the experiment. */
+#why-mobispace .ms-strengths-lead,#why-mobispace .ms-method-copy p,#why-mobispace .ms-method-copy .ms-method-note{font-size:1.25rem;line-height:1.8;color:#000000}
+@media(max-width:768px){#why-mobispace .ms-strengths-lead,#why-mobispace .ms-method-copy p,#why-mobispace .ms-method-copy .ms-method-note{font-size:1.125rem;line-height:1.8}}

@@ -1,0 +1,16 @@
+
+.ms-nav-cta{box-sizing:border-box;position:relative;display:inline-flex!important;align-items:center;justify-content:center;gap:16px;min-width:168px;min-height:58px;padding:12px 24px!important;border:1px solid #1FDFBC!important;border-radius:999px!important;background:#1FDFBC!important;color:#000000!important;font:700 24px/1.2 Arial,"Hiragino Kaku Gothic ProN",sans-serif!important;letter-spacing:0!important;text-shadow:none!important;text-decoration:none;isolation:isolate;cursor:pointer;transform-origin:center;transition:box-shadow .2s,filter .2s;overflow:hidden;}
+.ms-nav-cta::before,.ms-nav-cta::after{content:none!important}
+.ms-nav-cta .cta-arrow{font-size:25px;transition:transform .2s}
+.ms-nav-cta[data-variant="A"]{box-shadow:0 0 0 0 #1fdfbc00}
+.ms-nav-cta[data-variant="B"]{background:linear-gradient(175deg,#bfffee 0%,#53edce 27%,#1fdfbc 62%,#15c9a9 100%)!important;box-shadow:inset 0 2px 2px #ffffffcc,inset 0 -4px 5px #08786550,0 5px 0 #117e6c,0 8px 16px #0003}
+.ms-nav-cta:focus-visible{outline:3px solid #fff!important;outline-offset:5px}
+.ms-nav-cta:hover .cta-arrow{transform:translateX(3px)}
+.ms-nav-cta[data-variant="A"].cta-idle{animation:cta-breathe 450ms ease-out}
+.ms-nav-cta[data-variant="B"].cta-idle{animation:cta-jelly 500ms ease-out}
+.ms-nav-cta[data-variant="B"]:is(:hover,:focus-visible){animation:cta-jelly 500ms ease-out}
+.ms-nav-cta:active{transform:translateY(2px) scale(.98);filter:brightness(.97)}
+@keyframes cta-breathe{50%{box-shadow:0 0 0 7px #1fdfbc22}}
+@keyframes cta-jelly{0%,100%{transform:scale(1)}30%{transform:scale(1.035,.96)}50%{transform:scale(.98,1.02)}70%{transform:scale(1.01,.99)}}
+@media(max-width:768px){.ms-nav-cta{min-width:120px;min-height:48px;padding:10px 16px!important;font-size:20px!important;gap:8px}.ms-nav-cta .cta-arrow{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.ms-nav-cta,.ms-nav-cta *{animation:none!important;transition:none!important}}
