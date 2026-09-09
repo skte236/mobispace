@@ -1,0 +1,92 @@
+{
+  "verified_at": "2026-09-09T19:16:52.026095+09:00",
+  "files": [
+    {
+      "path": "index.html",
+      "exact_match": true,
+      "bytes": 48458
+    },
+    {
+      "path": "company/index.html",
+      "exact_match": true,
+      "bytes": 37166
+    },
+    {
+      "path": "products/index.html",
+      "exact_match": true,
+      "bytes": 15555
+    },
+    {
+      "path": "dx/index.html",
+      "exact_match": true,
+      "bytes": 20205
+    },
+    {
+      "path": "news/index.html",
+      "exact_match": true,
+      "bytes": 16108
+    },
+    {
+      "path": "products/lidar-ai/index.html",
+      "exact_match": true,
+      "bytes": 25625
+    },
+    {
+      "path": "products/capture-cloud/index.html",
+      "exact_match": true,
+      "bytes": 40234
+    },
+    {
+      "path": "products/progresschecker/index.html",
+      "exact_match": true,
+      "bytes": 16869
+    },
+    {
+      "path": "products/mobistudio/details/index.html",
+      "exact_match": true,
+      "bytes": 41987
+    },
+    {
+      "path": "dx/cloud-services/index.html",
+      "exact_match": true,
+      "bytes": 13351
+    },
+    {
+      "path": "dx/enterprise/index.html",
+      "exact_match": true,
+      "bytes": 5023
+    },
+    {
+      "path": "news/newspicks-20250830.html",
+      "exact_match": true,
+      "bytes": 12663
+    },
+    {
+      "path": "news/aws-physical-ai-program-20260807.html",
+      "exact_match": true,
+      "bytes": 11990
+    },
+    {
+      "path": "sitemap.xml",
+      "exact_match": true,
+      "bytes": 5738
+    }
+  ],
+  "redirects": [
+    {
+      "path": "systems",
+      "status": 301,
+      "location": "https://mobispace.jp/dx/"
+    },
+    {
+      "path": "systems/",
+      "status": 301,
+      "location": "https://mobispace.jp/dx/"
+    },
+    {
+      "path": "systems/index.html",
+      "status": 301,
+      "location": "https://mobispace.jp/dx/"
+    }
+  ]
+}
