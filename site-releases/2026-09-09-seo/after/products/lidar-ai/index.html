@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<!-- Google Analytics + cookie consent -->
+<script src="/js/consent.js"></script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiDAR AI フュージョン | モビスペース株式会社</title>
+    <meta name="description" content="LiDAR点群データと画像AIを融合し、構造物・インフラ・車両の状態を高精度に3D評価。Livox mid360やiPad Pro LiDARに対応。建設DX・インフラ点検・車両査定のためのAIフュージョン技術。">
+    <meta name="keywords" content="LiDAR,点群,AI,3D計測,画像認識,インフラ点検,建設DX,構造物評価,Livox mid360,iPad Pro LiDAR,フュージョン技術,非破壊検査">
+
+    <link rel="icon" href="/img/fabicon.png">
+    <link rel="canonical" href="https://mobispace.jp/products/lidar-ai/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="LiDAR AI フュージョン | モビスペース株式会社">
+    <meta property="og:description" content="点群データと画像AIを融合し、構造物・設備の状態をより正確に評価する次世代ソリューション。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mobispace.jp/products/lidar-ai/">
+    <meta property="og:site_name" content="モビスペース株式会社">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "LiDAR AI フュージョン",
+      "name": "LiDAR AI フュージョン",
+      "description": "点群データと画像AIを融合し、構造物・設備の状態をより正確に評価する次世代ソリューション",
+      "provider": {
+        "@type": "Organization",
+        "name": "モビスペース株式会社"
+      },
+      "areaServed": "JP",
+      "url": "https://mobispace.jp/products/lidar-ai/"
+    }
+    </script>
+
+    <style>
+      body.preload * { transition: none !important; }
+
+      .feature-list {
+          list-style: none;
+          padding: 0;
+      }
+      .feature-list li {
+          margin-bottom: 1rem;
+          padding-left: 1.5rem;
+          position: relative;
+      }
+      .feature-list li::before {
+          font-family: "Font Awesome 5 Free";
+          content: "\f00c";
+          font-weight: 900;
+          position: absolute;
+          left: 0;
+          color: var(--primary-color, #1FDFBC);
+      }
+
+      .grid-2, .grid-3 {
+          display: grid;
+          gap: 30px;
+          margin-top: 30px;
+      }
+      .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+      .problem-card {
+          background: #fff;
+          border: 1px solid #eee;
+          border-left: 5px solid #ff6b6b;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      .problem-icon {
+          color: #ff6b6b;
+          font-size: 2rem;
+          margin-bottom: 15px;
+      }
+
+      .solution-card {
+          background: #f9fbfd;
+          padding: 25px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid #e1e8ed;
+          transition: transform 0.3s;
+      }
+      .solution-card:hover { transform: translateY(-5px); }
+      .solution-icon {
+          color: var(--primary-color, #1FDFBC);
+          font-size: 3rem;
+          margin-bottom: 15px;
+          display: inline-block;
+      }
+
+      .comparison-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          background: #fff;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      .comparison-table th, .comparison-table td {
+          padding: 15px;
+          border-bottom: 1px solid #eee;
+          text-align: left;
+      }
+      .comparison-table th {
+          background: #f4f7f9;
+          font-weight: 700;
+          width: 40%;
+      }
+      .comparison-table td {
+          font-weight: 700;
+          color: #2c3e50;
+      }
+      .comparison-header {
+          background: #2c3e50 !important;
+          color: #fff;
+      }
+      .comparison-header.highlight {
+          background: var(--primary-color, #1FDFBC) !important;
+          color: #fff;
+      }
+
+      .spec-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          background: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          border: 1px solid #eee;
+      }
+      .spec-item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+      }
+      .spec-label {
+          font-size: 0.85rem;
+          color: #888;
+          font-weight: 700;
+      }
+      .spec-value {
+          font-size: 1.1rem;
+          font-weight: 700;
+      }
+
+      .detail-section { padding: 80px 0; }
+      .detail-section.bg-light { background-color: #fff; }
+
+      /* Solution split (image left / text right) — matches AI Vehicle Appraisal */
+      .sol-feature {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+          margin-top: 40px;
+      }
+      .sol-image { flex: 0 0 55%; max-width: 55%; }
+      .sol-image img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+      .sol-text { flex: 0 0 45%; max-width: 45%; }
+      .sol-text h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--text-color); }
+      .sol-text p { line-height: 1.9; color: #555; }
+      .sol-text ul { list-style: none; margin-top: 20px; padding: 0; }
+      .sol-text ul li { margin-bottom: 10px; font-weight: 700; }
+      .sol-text ul li i { color: var(--primary-color); margin-right: 10px; }
+      @media (max-width: 768px) {
+          .sol-feature { flex-direction: column; }
+          .sol-image, .sol-text { max-width: 100%; flex: 1 1 auto; }
+      }
+
+      .section-headline {
+          text-align: center;
+          margin-bottom: 50px;
+          position: relative;
+          padding-bottom: 15px;
+      }
+      .section-headline-label {
+          display: block;
+          font-family: var(--heading-font);
+          font-weight: 700;
+          font-size: clamp(1rem, 2.2vw, 1.2rem);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+          background-image: linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+      }
+      .section-headline-main {
+          display: block;
+          font-size: clamp(2rem, 3.8vw, 2.6rem);
+          font-weight: 700;
+          color: #000;
+      }
+      .section-headline-main i {
+          margin-right: 10px;
+      }
+      .section-headline::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: #000;
+      }
+
+      .section-image-container {
+          margin: 40px auto;
+          max-width: 900px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .section-image-container img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      .fusion-diagram {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          gap: 20px;
+          max-width: 800px;
+          margin: 40px auto;
+          text-align: center;
+      }
+      .fusion-diagram .fusion-box {
+          background: #fff;
+          border: 2px solid #e1e8ed;
+          border-radius: 12px;
+          padding: 25px 20px;
+      }
+      .fusion-diagram .fusion-plus {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--primary-color, #1FDFBC);
+      }
+      .fusion-diagram .fusion-box i {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+          display: block;
+      }
+      .fusion-result {
+          background: linear-gradient(135deg, var(--gradient-color-1), var(--gradient-color-2));
+          color: #fff;
+          border-radius: 12px;
+          padding: 25px;
+          text-align: center;
+          max-width: 500px;
+          margin: 30px auto 0;
+      }
+      .fusion-result h4,
+      .fusion-result p {
+          color: #fff;
+          font-size: 1.3rem;
+          margin-bottom: 10px;
+      }
+      .fusion-result p {
+          font-size: 1rem;
+          margin-bottom: 0;
+      }
+      @media (max-width: 768px) {
+          .lidar-solution-box {
+              flex-direction: column !important;
+              padding: 40px !important;
+              text-align: center;
+          }
+      }
+      @media (max-width: 600px) {
+          .fusion-diagram {
+              grid-template-columns: 1fr;
+          }
+          .fusion-diagram .fusion-plus {
+              transform: rotate(90deg);
+          }
+      }
+    </style>
+</head>
+<body class="subpage preload">
+
+<header class="h js-header" id="header-placeholder"></header>
+
+    <!-- Page Header -->
+    <section class="page-title-section">
+        <div class="c-inner">
+            <div class="page-title-content" data-aos="fade-up">
+                <h1 class="tp-title_jp">LiDAR AI フュージョン</h1>
+                <p class="tp-title_en">点群データ × 画像AIで実現する、<br>次世代の高精度AI評価技術</p>
+                <p class="page-header-desc">LiDAR点群と画像認識AIを融合し、構造物・設備の状態をより正確に、より包括的に評価します。</p>
+            </div>
+
+            <nav class="breadcrumbs" aria-label="パンくずリスト" data-aos="fade-up" data-aos-delay="100">
+                <ol>
+                    <li><a href="/"><i class="fas fa-home"></i> TOP</a></li>
+                    <li><a href="/products/">プロダクト事業</a></li>
+                    <li>LiDAR AI フュージョン</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- SOLUTION (image-left / text-right, shown first) -->
+    <section class="detail-section" style="padding-top: 74px;">
+        <div class="c-inner">
+            <div class="sol-feature" style="margin-top:0;">
+                <div class="sol-image" data-aos="fade-right">
+                    <img src="/img/optimized-20260909/8e6cdc4ae3-lidar.webp" alt="LiDAR点群データによる物体検出の可視化">
+                </div>
+                <div class="sol-text" data-aos="fade-left">
+                    <h3>点群×画像AIで、「見えない」を可視化する</h3>
+                    <p>LiDAR点群データと画像認識AIを融合し、対象物の3D形状と状態を同時に評価。従来の目視や2D画像では捉えきれなかった損傷・変形・寸法を、高精度かつ客観的に検出します。</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3D形状と表面状態を同時に評価</li>
+                        <li><i class="fas fa-check-circle"></i> 寸法・体積・距離を高精度にデータ化</li>
+                        <li><i class="fas fa-check-circle"></i> 検査者によるばらつきを排除し標準化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. 現場の課題 -->
+    <section class="detail-section">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">CHALLENGE</span>
+                <span class="section-headline-main"><i class="fas fa-exclamation-triangle" style="color:#ff6b6b;"></i>従来の課題</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">画像AIだけ、あるいは点群だけでは捉えきれない現場がある。<br>より正確な評価には、複数のセンサー情報を統合的に解析する技術が必要です。</p>
+
+            <div class="grid-3" data-aos="fade-up">
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-camera"></i></div>
+                    <h3>画像AIだけでは寸法が取れない</h3>
+                    <p>写真から損傷を検出しても、正確なサイズ・体積・距離の把握には別途計測が必要です。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>点群だけでは状態が分からない</h3>
+                    <p>LiDARで形状を取得しても、表面の劣化・材質変化・色彩異常は判定できません。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>評価精度のばらつき</h3>
+                    <p>目視＋2D画像のみでは検査者ごとに結果が異なり、再現性・客観性に欠けます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ソリューション -->
+    <section class="detail-section bg-light">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">TECHNOLOGY</span>
+                <span class="section-headline-main"><i class="fas fa-rocket" style="color:#1FDFBC;"></i>フュージョン技術</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px; font-weight:700;" data-aos="fade-up">
+                LiDAR点群 × 画像AI = より高精度な評価<br>
+                モビスペースの「LiDAR AI フュージョン」が解決します。
+            </p>
+
+            <div class="fusion-diagram" data-aos="fade-up">
+                <div class="fusion-box">
+                    <i class="fas fa-dot-circle" style="color:#3498db;"></i>
+                    <h4>LiDAR 点群データ</h4>
+                    <p style="font-size:0.9rem;">3D形状・寸法・距離</p>
+                </div>
+                <div class="fusion-plus">+</div>
+                <div class="fusion-box">
+                    <i class="fas fa-brain" style="color:#e74c3c;"></i>
+                    <h4>画像AI認識</h4>
+                    <p style="font-size:0.9rem;">状態判定・分類・検出</p>
+                </div>
+            </div>
+            <div class="fusion-result" data-aos="fade-up" data-aos-delay="200">
+                <h4>高精度AIフュージョン評価</h4>
+                <p>寸法＋状態を同時に把握、従来比で評価精度を大幅向上</p>
+            </div>
+
+            <div class="grid-3" style="margin-top:50px;" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>点群と画像の同時取得</h3>
+                    <p>LiDARとカメラで同一シーンの3D形状と外観を同時記録。データ整合性を確保します。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>AIによる統合解析</h3>
+                    <p>点群の寸法・位置情報と画像の状態情報をAIが自動統合。人手では不可能な精度を実現。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>リアルタイム現場処理</h3>
+                    <p>360° LiDAR（mid360）やiPad Pro LiDARに対応。現場でその場で解析・評価が完了します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 主要な機能 -->
+    <section class="detail-section">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">KEY FEATURES</span>
+                <span class="section-headline-main">主要な機能</span>
+            </h2>
+            <div class="grid-3" data-aos="fade-up">
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-vector-square"></i></div>
+                    <h4 style="font-weight:700;">3D寸法自動計測</h4>
+                    <p style="font-size:0.9rem;">点群からサイズ・体積・距離をAIが自動算出します。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-eye"></i></div>
+                    <h4 style="font-weight:700;">表面状態AI判定</h4>
+                    <p style="font-size:0.9rem;">損傷・腐食・変色を画像AIが自動分類・グレード判定。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4 style="font-weight:700;">マルチセンサー融合</h4>
+                    <p style="font-size:0.9rem;">360°/フラットLiDARとカメラの組み合わせに柔軟対応。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4 style="font-weight:700;">経時変化トラッキング</h4>
+                    <p style="font-size:0.9rem;">定期スキャン比較で変形・劣化の進行を可視化。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4 style="font-weight:700;">空間マッピング</h4>
+                    <p style="font-size:0.9rem;">点群から3D空間地図を生成し、損傷箇所を座標で特定。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-database"></i></div>
+                    <h4 style="font-weight:700;">データ一元管理</h4>
+                    <p style="font-size:0.9rem;">点群・画像・評価結果をクラウドで統合管理・共有。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 従来手法との比較 -->
+    <section class="detail-section bg-light">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">COMPARISON</span>
+                <span class="section-headline-main"><i class="fas fa-sync-alt" style="color:#3498db;"></i>従来手法との比較</span>
+            </h2>
+            <div data-aos="fade-up">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="comparison-header">従来手法</th>
+                            <th class="comparison-header highlight">LiDAR AI フュージョン</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>画像のみ → 2Dの検出、寸法計測は別途</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 検出と寸法計測を同時に完了</td>
+                        </tr>
+                        <tr>
+                            <td>点群のみ → 形状は取得できるが状態不明</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 3D形状＋表面状態を統合評価</td>
+                        </tr>
+                        <tr>
+                            <td>目視＋写真 → 検査者ごとにばらつき大</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> AIによる客観的・再現性ある評価</td>
+                        </tr>
+                        <tr>
+                            <td>後からデータ統合 → 時間・コスト膨大</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 現場で同時取得、リアルタイム処理</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ユースケース -->
+    <section class="detail-section bg-light">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <i class="fas fa-map-marker-alt" style="color:#e74c3c; margin-right:10px;"></i>
+                活用シーン
+            </h2>
+            <div style="max-width:600px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);" data-aos="fade-up">
+                <ul class="feature-list" style="font-size:1.1rem; font-weight:700; color:#2c3e50;">
+                    <li>車両外装の損傷評価（サイズ＋深さ＋状態を同時判定）</li>
+                    <li>構造物の定期点検（橋梁・トンネル・建物）</li>
+                    <li>工場設備の劣化モニタリング</li>
+                    <li>建設現場の進捗管理と品質チェック</li>
+                    <li>文化財・歴史的建造物のデジタルアーカイブ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+    <div class="c-inner" data-aos="zoom-in">
+        <h2 class="cta-title">点群 × 画像AIで、評価の精度を次のレベルへ。</h2>
+        <p class="cta-text">LiDAR AI フュージョンの導入相談やデモのご依頼を承っています。<br>お客様の現場条件に最適なセンサー構成をご提案します。</p>
+        <a href="/contact/" class="c-button contact-cta-btn btn-animated">
+            <span class="c-button_label contact-cta-btn_label">資料請求・お問い合わせ</span>
+        </a>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="f">
+        <button class="f-toTop js-toTop" aria-label="TOPに戻る">
+            <svg class="svg svg-arrow"><use xlink:href="#arrow"></use></svg>
+        </button>
+        <div class="f-main">
+            <div class="c-inner f-main-inner">
+                <a class="f-logo-main" href="/" aria-label="Mobispace ホーム">
+                    <img src="/img/blocks_logo_white.png" alt="Mobispace フッターロゴ">
+                </a>
+                <p class="f-address">
+                    〒169-0051<br>
+                    東京都新宿区西早稲田1-22-3 早稲田大学内
+                </p>
+                <p class="f-copyright-main">© <span id="footer-year">2025</span> Mobispace Co., Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG Definitions -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+         <symbol id="arrow" viewBox="0 0 35 11"> <path d="M1 5.5h32M29 .5l5 5M29 10.5l5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </symbol>
+         <symbol id="blank" viewBox="0 0 14 14"> <path d="M3.971 1h8.579v9.947H3.971z" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="M1.418 2.553V13.5h9.579" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="m6 7.814 4-4M8.375 3.813s.756.07 1.625 0M10 5.437V3.813" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"></path> </symbol>
+      </defs>
+    </svg>
+
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/nav_ja.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('load', () => { document.body.classList.remove('preload'); });
+        setTimeout(() => { document.body.classList.remove('preload'); }, 500);
+    </script>
+</body>
+</html>

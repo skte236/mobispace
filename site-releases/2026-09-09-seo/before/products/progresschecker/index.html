@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+<!-- Google Analytics + cookie consent -->
+<script src="/js/consent.js"></script>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>OpenSpace AI Plugin | モビスペース株式会社</title>
+  <link rel="canonical" href="https://mobispace.jp/products/progresschecker/">
+  <meta name="description" content="OpenSpace AI Pluginは360度画像を解析し、施工進捗・施工状況・品質を自動可視化。確認業務の時間を最大70%削減します。">
+
+  <link rel="icon" href="/img/fabicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/nav.css">
+
+  <style>
+    body.preload * { transition: none !important; }
+
+    .checker-challenges,
+    .checker-impact {
+      background: #fff;
+    }
+
+    .checker-capabilities,
+    #supported-components {
+      background: #f4f7f9;
+    }
+
+    .checker-lead {
+      max-width: 980px;
+      margin: 0 auto 34px;
+      text-align: center;
+      line-height: 1.9;
+      color: #2b3c4e;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+    }
+
+    .checker-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .checker-capability-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 1080px) {
+      .checker-capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .checker-card,
+    .checker-capability-card {
+      background: #fff;
+      border: 1px solid #e3eaf2;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(15, 27, 45, 0.06);
+    }
+
+    .checker-card {
+      border-left: 5px solid #ff6e78;
+    }
+
+    .checker-card-icon,
+    .checker-capability-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #ff6e78;
+    }
+
+    .checker-capability-icon {
+      color: #1FDFBC;
+    }
+
+    .checker-card h3,
+    .checker-capability-card h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      line-height: 1.35;
+      color: #0f1b2a;
+    }
+
+    .checker-card p,
+    .checker-capability-card p {
+      margin: 0;
+      line-height: 1.8;
+      color: #33495f;
+    }
+
+    .checker-compare-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(15, 27, 45, 0.08);
+    }
+
+    .checker-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    .checker-compare-table th,
+    .checker-compare-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #e8edf2;
+      text-align: left;
+    }
+
+    .checker-compare-table thead th {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .checker-compare-table thead th:first-child {
+      background: #2f455b;
+      width: 50%;
+    }
+
+    .checker-compare-table thead th:last-child {
+      background: linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+      width: 50%;
+    }
+
+    .checker-compare-table td:first-child {
+      font-weight: 700;
+      color: #25384d;
+      background: #f8fbff;
+    }
+
+    .checker-compare-table td:last-child {
+      font-weight: 700;
+      color: #0b5c7e;
+    }
+
+    .checker-check {
+      color: #15b7a0;
+      margin-right: 8px;
+    }
+
+    .supported-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .supported-category-card {
+      background: #fff;
+      border: 1px solid #e3eaf2;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .supported-category-title {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      color: #172537;
+    }
+
+    .supported-items-list {
+      margin: 0;
+      padding-left: 1.1em;
+      color: #33495f;
+      line-height: 1.7;
+    }
+
+    .checker-cta {
+      background: linear-gradient(120deg, var(--gradient-color-1) 0%, var(--gradient-color-2) 100%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .checker-cta h2 {
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .checker-cta p {
+      margin: 0 0 24px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.95);
+    }
+
+    @media (max-width: 900px) {
+      .checker-card-grid,
+      .checker-capability-grid,
+      .supported-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .checker-compare-table,
+      .checker-compare-table thead,
+      .checker-compare-table tbody,
+      .checker-compare-table tr,
+      .checker-compare-table th,
+      .checker-compare-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .checker-compare-table thead { display: none; }
+      .checker-compare-table td:first-child {
+        border-bottom: none;
+        background: #fff;
+        color: #5b6f83;
+        padding-bottom: 6px;
+      }
+      .checker-compare-table td:last-child {
+        padding-top: 0;
+        padding-bottom: 16px;
+      }
+    }
+
+    /* Solution split (image left / text right) — matches LiDAR / Measure */
+    .sol-feature {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-top: 0;
+    }
+    .sol-image { flex: 0 0 55%; max-width: 55%; }
+    .sol-image img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+    .sol-text-split { flex: 0 0 45%; max-width: 45%; }
+    .sol-text-split h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--text-color); }
+    .sol-text-split p { line-height: 1.9; color: #555; }
+    .sol-text-split ul { list-style: none; margin-top: 20px; padding: 0; }
+    .sol-text-split ul li { margin-bottom: 10px; font-weight: 700; }
+    .sol-text-split ul li i { color: var(--primary-color); margin-right: 10px; }
+    @media (max-width: 768px) {
+        .sol-feature { flex-direction: column; }
+        .sol-image, .sol-text-split { max-width: 100%; flex: 1 1 auto; }
+    }
+  </style>
+</head>
+<body class="subpage preload">
+
+<header class="h js-header" id="header-placeholder"></header>
+
+<section class="page-title-section">
+  <div class="c-inner">
+    <div class="page-title-content" data-aos="fade-up">
+      <h1 class="tp-title_jp">OpenSpace AI Plugin</h1>
+      <p class="tp-title_en">施工確認を、AIに任せる。</p>
+      <p class="page-header-desc">360度カメラ画像をAI解析し、施工進捗・施工状況・品質を自動可視化。確認業務の時間を最大70%削減します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION (image-left / text-right, shown first) -->
+<section class="section-padding" style="padding-top: 74px;">
+  <div class="c-inner">
+    <div class="sol-feature">
+      <div class="sol-image" data-aos="fade-right">
+        <img src="/img/progresschecker/overview360.png" alt="OpenSpace AI Plugin の360度画像による施工確認画面">
+      </div>
+      <div class="sol-text-split" data-aos="fade-left">
+        <h3>360度画像で、施工状況をまるごと記録</h3>
+        <p>360度カメラで撮影した現場画像をAIが解析し、施工進捗・施工状況・品質を自動で可視化。移動・目視・紙管理に頼っていた確認業務を、データで標準化します。</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 現場をまるごと360度で記録</li>
+          <li><i class="fas fa-check-circle"></i> 進捗・品質をAIが自動可視化</li>
+          <li><i class="fas fa-check-circle"></i> 確認業務の時間を最大70%削減</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding checker-challenges">
+  <div class="c-inner">
+    <div class="tp-title" data-aos="fade-up">
+      <p class="tp-title_jp">CHALLENGE</p>
+      <h2 class="tp-title_en">現場の課題</h2>
+      <hr class="contact-divider">
+    </div>
+    <p class="checker-lead" data-aos="fade-up" data-aos-delay="100">
+      現場確認の多くは、移動・目視・紙管理に依存しており、進捗と品質の判断が属人化しやすい状態です。<br>
+      OpenSpace AI Pluginは、この課題をデータで見える化し、現場判断を標準化します。
+    </p>
+    <div class="checker-card-grid" data-aos="fade-up" data-aos-delay="150">
+      <article class="checker-card">
+        <div class="checker-card-icon"><i class="fas fa-route"></i></div>
+        <h3>確認のための移動が多い</h3>
+        <p>部屋ごと・フロアごとに現場を巡回し、状況確認に時間を取られてしまいます。</p>
+      </article>
+      <article class="checker-card">
+        <div class="checker-card-icon"><i class="fas fa-undo-alt"></i></div>
+        <h3>手戻りが発生しやすい</h3>
+        <p>完了後のまとめ確認では、未施工や不備の発見が遅れ、再作業につながります。</p>
+      </article>
+      <article class="checker-card">
+        <div class="checker-card-icon"><i class="fas fa-user-check"></i></div>
+        <h3>品質判断が属人化</h3>
+        <p>担当者の経験差で判断がぶれ、現場間で品質基準をそろえにくくなります。</p>
+      </article>
+      <article class="checker-card">
+        <div class="checker-card-icon"><i class="fas fa-clock"></i></div>
+        <h3>確認時間が不足</h3>
+        <p>限られた工期と人員の中で、十分な確認時間を確保するのが難しくなります。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding checker-capabilities">
+  <div class="c-inner">
+    <div class="tp-title" data-aos="fade-up">
+      <p class="tp-title_jp">CAPABILITIES</p>
+      <h2 class="tp-title_en">現在できること</h2>
+      <hr class="contact-divider">
+    </div>
+    <div class="checker-capability-grid" data-aos="fade-up" data-aos-delay="100">
+      <article class="checker-capability-card">
+        <div class="checker-capability-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>施工進捗の自動把握</h3>
+        <p>360度画像から部屋単位で工程を自動分類し、進捗率を推定。現場に行かずに全体の進み具合を把握できます。</p>
+      </article>
+      <article class="checker-capability-card">
+        <div class="checker-capability-icon"><i class="fas fa-eye"></i></div>
+        <h3>施工状況の可視化</h3>
+        <p>未施工箇所や異常をAIが自動抽出。見落としを防ぎ、手戻りの原因を早期に発見します。</p>
+      </article>
+      <article class="checker-capability-card">
+        <div class="checker-capability-icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>施工品質チェック</h3>
+        <p>内装仕上げの状態をAIが自動判定。検査基準を統一し、担当者によるばらつきをなくします。</p>
+      </article>
+      <article class="checker-capability-card">
+        <div class="checker-capability-icon"><i class="fas fa-clock"></i></div>
+        <h3>工程・スケジュール管理</h3>
+        <p>進捗を時系列で記録し、計画と実績を比較。遅延の兆候を早期に検知し、納期管理を支援します。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding checker-impact">
+  <div class="c-inner">
+    <div class="tp-title" data-aos="fade-up">
+      <p class="tp-title_jp">BEFORE / AFTER</p>
+      <h2 class="tp-title_en">導入効果</h2>
+      <hr class="contact-divider">
+    </div>
+    <div class="checker-compare-wrap" data-aos="fade-up" data-aos-delay="100">
+      <table class="checker-compare-table" aria-label="OpenSpace AI Pluginの導入効果比較">
+        <thead>
+          <tr>
+            <th>従来</th>
+            <th>導入後</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>確認業務に時間がかかる</td>
+            <td><i class="fas fa-check-circle checker-check"></i>確認業務時間を最大70%削減</td>
+          </tr>
+          <tr>
+            <td>現場移動が多く非効率</td>
+            <td><i class="fas fa-check-circle checker-check"></i>現場移動を30〜50%削減</td>
+          </tr>
+          <tr>
+            <td>完了後に不備が発覚し手戻り</td>
+            <td><i class="fas fa-check-circle checker-check"></i>手戻り発生率を低減</td>
+          </tr>
+          <tr>
+            <td>品質判断が担当者依存</td>
+            <td><i class="fas fa-check-circle checker-check"></i>品質基準の標準化を実現</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="supported-components" class="section-padding">
+  <div class="c-inner">
+    <div class="tp-title" data-aos="fade-up">
+      <p class="tp-title_jp">SUPPORTED COMPONENTS</p>
+      <h2 class="tp-title_en">対応部材一覧</h2>
+      <hr class="contact-divider">
+    </div>
+
+    <div class="supported-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="supported-category-card">
+        <h3 class="supported-category-title">下地・構造</h3>
+        <ul class="supported-items-list">
+          <li>墨出</li><li>区画壁・先行遮音壁</li><li>二重床</li><li>床上墨出</li><li>床上LGS</li><li>天井LGS</li><li>器具下地</li><li>ボード</li><li>木枠</li>
+        </ul>
+      </div>
+      <div class="supported-category-card">
+        <h3 class="supported-category-title">開口・設備</h3>
+        <ul class="supported-items-list">
+          <li>サッシ取付</li><li>玄関SD枠</li><li>設備開口</li><li>ダクト開口</li><li>配線ルート</li><li>器具取付位置</li>
+        </ul>
+      </div>
+      <div class="supported-category-card">
+        <h3 class="supported-category-title">仕上げ</h3>
+        <ul class="supported-items-list">
+          <li>下塗り</li><li>中塗り</li><li>上塗り</li><li>クロス仕上げ</li><li>床仕上げ</li><li>最終品質確認</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding checker-cta">
+  <div class="c-inner" data-aos="fade-up">
+    <h2>現場の確認業務を、もっと速く、もっと確実に。</h2>
+    <p>御社の現場に合わせたデモ・導入相談を承っています。<br>まずはお気軽にお問い合わせください。</p>
+    <a href="/contact/" class="contact-cta-btn"><span class="contact-cta-btn_label">資料請求・お問い合わせ</span></a>
+  </div>
+</section>
+
+<footer class="f">
+  <button class="f-toTop js-toTop" aria-label="TOPに戻る">
+    <svg class="svg svg-arrow"><use xlink:href="#arrow"></use></svg>
+  </button>
+  <div class="f-main">
+    <div class="c-inner f-main-inner">
+      <a class="f-logo-main" href="/" aria-label="Mobispace ホーム">
+        <img src="/img/blocks_logo_white.png" alt="Mobispace フッターロゴ">
+      </a>
+      <p class="f-address">〒169-0051<br>東京都新宿区西早稲田1-22-3 早稲田大学内</p>
+      <p class="f-copyright-main">© <span id="footer-year">2025</span> Mobispace Co., Ltd.</p>
+    </div>
+  </div>
+</footer>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 35 11"><path d="M1 5.5h32M29 .5l5 5M29 10.5l5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+  </defs>
+</svg>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="/js/nav_ja.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+  window.addEventListener('load', () => { document.body.classList.remove('preload'); });
+  setTimeout(() => { document.body.classList.remove('preload'); }, 500);
+
+  const toTopButton = document.querySelector('.js-toTop');
+  if (toTopButton) {
+    window.addEventListener('scroll', () => { toTopButton.classList.toggle('is-visible', window.scrollY > 300); });
+    toTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearSpan = document.getElementById('footer-year');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>
+

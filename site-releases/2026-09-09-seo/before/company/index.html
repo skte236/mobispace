@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+<!-- Google Analytics + cookie consent -->
+<script src="/js/consent.js?v=20260821e"></script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>会社概要 - モビスペース株式会社</title>
+    <meta name="description" content="モビスペース株式会社の会社概要ページです。ミッション、企業情報、受賞歴、アクセスなどをご紹介します。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="会社概要 - モビスペース株式会社">
+    <meta property="og:description" content="モビスペース株式会社の会社概要ページです。ミッション、企業情報、受賞歴、アクセスなどをご紹介します。">
+    <meta property="og:url" content="https://mobispace.jp/company/">
+    <meta property="og:image" content="https://mobispace.jp/img/blocks_logo_white.png">
+    <meta property="og:site_name" content="モビスペース株式会社">
+    <link rel="canonical" href="https://mobispace.jp/company/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/fabicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- External Libraries CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- ★追加: ナビゲーション用CSS -->
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <!-- Preload Styles -->
+    <style>
+      body.preload * { transition: none !important; }
+
+      /* 既存デザインのまま、受賞歴を会社概要の先頭へ配置。 */
+      main { display: flex; flex-direction: column; }
+      main > .page-title-section { order: 0; }
+      main > #awards { order: 1; }
+      main > section:not(.page-title-section):not(#awards) { order: 2; }
+
+      .awards-section { background: linear-gradient(180deg, #f7f9fc 0%, #fff 100%); }
+      .awards-section::before {
+        content: 'RECOGNITION'; display: block; max-width: 1200px; margin: 0 auto -16px; padding: 0 30px;
+        color: #1d62c6; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .22em;
+      }
+      /* 受賞歴：人物カードはすべて同じ構成・余白・写真サイズで表示する。 */
+      .award-judges { margin-top: 18px; }
+      .judge-portrait-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; margin-top: 8px; }
+      .judge-portrait-grid figure { display: flex; min-width: 0; min-height: 48px; align-items: center; gap: 8px; margin: 0; }
+      .judge-portrait-grid figure:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 7px); justify-self: center; }
+      .judge-portrait-grid img {
+        width: 46px; height: 46px; flex: 0 0 auto; display: block; border: 2px solid #fff;
+        border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(18, 54, 96, .18);
+      }
+      .judge-portrait-grid figcaption { min-width: 0; color: #1d62c6; font-size: 11px; font-weight: 700; line-height: 1.25; }
+      .judge-portrait-grid small { display: block; overflow: hidden; color: #6b7280; font-size: 9px; font-weight: 400; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+      .award-judges-label { margin: 0 0 8px; color: #374151; font-size: 12px; font-weight: 700; }
+      .judge-name-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+      .judge-name-chips span { padding: 5px 8px; border-radius: 999px; background: #eef5ff; color: #1d62c6; font-size: 11px; font-weight: 700; }
+      @media (max-width: 580px) {
+        .judge-portrait-grid { grid-template-columns: 1fr; }
+        .judge-portrait-grid figure:last-child:nth-child(odd) { grid-column: auto; width: auto; justify-self: auto; }
+      }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "モビスペース株式会社",
+  "image": "https://mobispace.jp/img/blocks_logo_white.png",
+  "url": "https://mobispace.jp/company/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "西早稲田1-22-3 早稲田大学内",
+    "addressLocality": "新宿区",
+    "addressRegion": "東京都",
+    "postalCode": "169-0051",
+    "addressCountry": "JP"
+  }
+}
+</script>
+</head>
+<body class="company-page page-template-default subpage preload">
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <button id="close-search" class="close-search-btn" aria-label="検索を閉じる">&times;</button>
+        <div class="search-overlay-content">
+            <form role="search" method="get" class="search-form" action="/">
+                <label>
+                    <span class="screen-reader-text">検索:</span>
+                    <input type="search" class="search-field" placeholder="検索キーワードを入力..." value="" name="s" />
+                </label>
+                <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+<header class="h js-header" id="header-placeholder"></header>
+    <main>
+        <!-- Page Title Section -->
+        <section class="page-title-section">
+            <div class="c-inner">
+                <div class="page-title-content" data-aos="fade-up">
+                    <h1 class="tp-title_jp">COMPANY</h1>
+                    <p class="tp-title_en">会社概要</p>
+                    <p class="page-header-desc">モビスペース株式会社の会社情報・ミッション・受賞歴・アクセスをご紹介します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION Section -->
+        <section id="mission" class="company-section mission-section">
+            <div class="c-inner">
+                <!-- 中央揃え (CSSで .tp-title は text-align: center に設定済み) -->
+                <div class="tp-title" data-aos="fade-up">
+                    <h2 class="tp-title_jp">MISSION</h2>
+                    <p class="tp-title_en">ミッション</p>
+                    <hr class="contact-divider">
+                </div>
+                <div class="mission-content" data-aos="fade-up" data-aos-delay="100">
+                    <p>あり得たかもしれないもう一つの世界線を現実にする</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHARTER Section -->
+        <section id="charter" class="company-section charter-section">
+            <div class="c-inner">
+                <!-- 中央揃え -->
+                <div class="tp-title" data-aos="fade-up">
+                    <h2 class="tp-title_jp">CHARTER</h2>
+                    <p class="tp-title_en">プロダクト創成憲章</p>
+                    <hr class="contact-divider">
+                </div>
+                <div class="charter-list" data-aos="fade-up" data-aos-delay="100">
+                    <div class="charter-item">
+                        <h3>ビジョンを持って創る</h3>
+                        <p>そのプロダクトが「何を変え、何を実現するのか」を明確に描いたビジョンを持ち、創出に取り組みます。</p>
+                    </div>
+                    <div class="charter-item">
+                        <h3>人々の生活と仕事に変革を</h3>
+                        <p>今まで人間の手で行われていたことをテクノロジーを用いて自動化、効率化することで人々が創造的な営為へ集中できる世界を実現し、人々の生活・仕事を変えます。</p>
+                    </div>
+                    <div class="charter-item">
+                        <h3>本質的な価値を備えた製品だけを作る</h3>
+                        <p>過剰な機能や複雑すぎる設計など、ユーザーにとって本質的価値を提供しない製品は作りません。必要最小限で最大の価値を提供するプロダクトを目指します。</p>
+                    </div>
+                    <div class="charter-item">
+                        <h3>最短距離で検証する</h3>
+                        <p>机上の空論に頼らず、迅速なプロトタイピングと実証のサイクルによって、プロダクトの品質と有用性を高めていきます。</p>
+                    </div>
+                    <div class="charter-item">
+                        <h3>「発明」を「プロダクト」に</h3>
+                        <p>いかに優れた技術であっても、それが広く使われなければ価値は生まれません。私たちは、優れた発明に普及性を備えることで初めて「プロダクト」となり得ると考えています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORPORATE PROFILE Section -->
+        <section id="profile" class="company-section profile-section">
+            <div class="c-inner" data-aos="fade-up">
+                <div class="tp-title">
+                    <h2 class="tp-title_jp">CORPORATE PROFILE</h2>
+                    <p class="tp-title_en">会社情報</p>
+                    <hr class="contact-divider">
+                </div>
+                <div class="company-profile-container" data-aos="fade-up" data-aos-delay="100">
+                    <table class="company-info-table">
+                        <tbody>
+                            <tr>
+                                <th>社名</th>
+                                <td data-label="社名">モビスペース株式会社</td>
+                            </tr>
+                            <tr>
+                                <th>代表者</th>
+                                <td data-label="代表者">片山 将</td>
+                            </tr>
+                            <tr>
+                                <th>設立日</th>
+                                <td data-label="設立日">2024年2月9日</td>
+                            </tr>
+                             <tr>
+                                <th>事業内容</th>
+                                <td data-label="事業内容">AI・コンピュータービジョン・フィジカルAIに関する技術開発およびシステム開発</td>
+                            </tr>
+                            <tr>
+                                <th>本社所在地</th>
+                                <td data-label="本社所在地">東京都新宿区西早稲田一丁目22番3号</td>
+                            </tr>
+                            <tr>
+                                <th>決算期</th>
+                                <td data-label="決算期">3月</td>
+                            </tr>
+                            <tr>
+                                <th>社員数</th>
+                                <td data-label="社員数">23名 (業務委託を含む)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGOS Section -->
+        <section id="logos" class="company-section logos-section">
+            <div class="c-inner">
+                <div class="tp-title" data-aos="fade-up">
+                    <h2 class="tp-title_jp">LOGOS</h2>
+                    <p class="tp-title_en">ロゴ</p>
+                    <hr class="contact-divider">
+                </div>
+                <div class="logos-grid" data-aos="fade-up" data-aos-delay="100">
+                    <figure class="logo-card logo-card-dark">
+                        <img src="/img/blocks_logo_white.png" alt="Mobispace ロゴ（白）">
+                    </figure>
+                    <figure class="logo-card logo-card-light">
+                        <img src="/img/blocks_logo_black.png" alt="Mobispace ロゴ（黒）">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS Section (New) -->
+        <section id="awards" class="company-section awards-section">
+            <div class="c-inner">
+                <div class="tp-title" data-aos="fade-up">
+                    <h2 class="tp-title_jp">AWARDS</h2>
+                    <p class="tp-title_en">受賞歴</p>
+                    <hr class="contact-divider">
+                </div>
+                
+                <!-- Swiper Container -->
+                <div class="swiper-container js-awards-slider" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: U-25 HIS -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_his_enhanced.jpg" alt="U-25 HIS ビジネスコンテストの受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2025年6月16日</span>
+                                <h3 class="award-title">第1回 U-25 HIS<br>ビジネスコンテスト 最優秀賞</h3>
+                                <p class="award-organizer">主催：株式会社エイチ・アイ・エス</p>
+                                <div class="award-judges" aria-label="特別審査員">
+                                    <p class="award-judges-label">特別審査員</p>
+                                    <div class="judge-portrait-grid">
+                                        <figure><img src="/img/judges/processed/sawada_shuta.jpg" alt="澤田秀太氏" loading="lazy"><figcaption>澤田秀太氏<small>H.I.S.</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/kaizu_masayuki.jpg" alt="海津誠之氏" loading="lazy"><figcaption>海津誠之氏<small>H.I.S.</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/miyasaka_tomohiro.jpg" alt="宮坂友大氏" loading="lazy"><figcaption>宮坂友大氏<small>外部アドバイザー</small></figcaption></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Kanagawa Business Audition -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_kanagawa_business_audition_2025_enhanced.jpg" alt="かながわビジネスオーディション2025の受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2025年2月6日</span>
+                                <h3 class="award-title">かながわビジネスオーディション2025<br>特別賞・KSP賞・きらぼし銀行賞</h3>
+                                <p class="award-organizer">主催：かながわビジネスオーディション実行委員会</p>
+                                <div class="award-judges" aria-label="選考機関">
+                                    <p class="award-judges-label">選考機関</p>
+                                    <div class="judge-name-chips"><span>株式会社ケイエスピー</span><span>株式会社きらぼし銀行</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Shinjuku Business Plan -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_shinjuku_business_plan_enhanced.jpg" alt="新宿ビジネスプランコンテストの受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2024年2月6日</span>
+                                <h3 class="award-title">SHINJUKU DREAM ACTIVATION VI<br>新宿ビジネスプランコンテスト 最優秀賞</h3>
+                                <p class="award-organizer">主催：新宿区・東京商工会議所新宿支部</p>
+                                <div class="award-judges" aria-label="審査員">
+                                    <p class="award-judges-label">審査員</p>
+                                    <div class="judge-portrait-grid">
+                                        <figure><img src="/img/judges/processed/shinjuku_ikeda.jpg" alt="池田俊介氏" loading="lazy"><figcaption>池田俊介氏<small>dentsu Japan</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/shinjuku_kamo.jpg" alt="加茂純氏" loading="lazy"><figcaption>加茂純氏<small>CDO Club Japan 代表理事</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/shinjuku_takeuchi.jpg" alt="竹内孝明氏" loading="lazy"><figcaption>竹内孝明氏<small>アート＆エコロジー 代表取締役</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/shinjuku_sugimoto.jpg" alt="杉本登志樹氏" loading="lazy"><figcaption>杉本登志樹氏<small>DNP 専務執行役員</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/shinjuku_imano.jpg" alt="今野穣氏" loading="lazy"><figcaption>今野穣氏<small>GCP 代表パートナー</small></figcaption></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: HONGO AI 2024 -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_hongo_ai_2024_enhanced.jpg" alt="HONGO AI 2024の受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2024年10月16日</span>
+                                <h3 class="award-title">HONGO AI 2024<br>HONGO AI BEST AWARD</h3>
+                                <p class="award-organizer">主催：一般社団法人HONGO AI</p>
+                                <div class="award-judges" aria-label="最終選考委員">
+                                    <p class="award-judges-label">最終選考委員</p>
+                                    <div class="judge-portrait-grid">
+                                        <figure><img src="/img/judges/processed/kagami_shigeo.jpg" alt="各務茂夫氏" loading="lazy"><figcaption>各務茂夫氏<small>東京大学 名誉教授</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/matsuo_yutaka.jpg" alt="松尾豊氏" loading="lazy"><figcaption>松尾豊氏<small>東京大学大学院 教授</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/okada_yosuke.jpg" alt="岡田陽介氏" loading="lazy"><figcaption>岡田陽介氏<small>ABEJA 代表取締役CEO</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/shigematsu_rui.jpg" alt="重松路威氏" loading="lazy"><figcaption>重松路威氏<small>ニューラルグループ CEO</small></figcaption></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5: Super Star Showrace -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_super_star_showrace_2024_enhanced.jpg" alt="Super Star Showrace 2024の受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2024年6月4日</span>
+                                <h3 class="award-title">Super Star Showrace 2024<br>AI/Web3.0部門 グランプリ</h3>
+                                <p class="award-organizer">主催：株式会社スルミ</p>
+                                <div class="award-judges" aria-label="審査員">
+                                    <p class="award-judges-label">審査員</p>
+                                    <div class="judge-portrait-grid">
+                                        <figure><img src="/img/judges/processed/takano_hidetoshi.jpg" alt="髙野秀敏氏" loading="lazy"><figcaption>髙野秀敏氏<small>キープレイヤーズ 代表取締役</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/osada_tadachiyo.jpg" alt="長田忠千代氏" loading="lazy"><figcaption>長田忠千代氏<small>T&amp;Aマネジメント 代表取締役</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/nishino_shinichiro.jpg" alt="西野伸一郎氏" loading="lazy"><figcaption>西野伸一郎氏<small>富士山マガジンサービス 代表取締役会長</small></figcaption></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6: WASEDA-EDGE -->
+                        <div class="swiper-slide award-card">
+                            <div class="award-img">
+                                <img src="/img/awards/award_waseda_edge_2024_enhanced_v2.png" alt="第6回WASEDA-EDGE Demo Day 審査員特別賞の受賞写真" loading="lazy">
+                            </div>
+                            <div class="award-body">
+                                <span class="award-date">2024年2月20日</span>
+                                <h3 class="award-title">第6回 WASEDA-EDGE Demo Day<br>審査員特別賞</h3>
+                                <p class="award-organizer">主催：早稲田大学 WASEDA-EDGE人材育成プログラム</p>
+                                <div class="award-judges" aria-label="審査員">
+                                    <p class="award-judges-label">審査員</p>
+                                    <div class="judge-portrait-grid">
+                                        <figure><img src="/img/judges/processed/kikuchi_keisuke.jpg" alt="菊池慶輔氏" loading="lazy"><figcaption>菊池慶輔氏<small>WERU INVESTMENT</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/tsutsumi_takashi.jpg" alt="堤孝志氏" loading="lazy"><figcaption>堤孝志氏<small>スタートアップ・ブレイン 代表取締役</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/suzuki_keita.svg" alt="鈴木啓太氏" loading="lazy"><figcaption>鈴木啓太氏<small>インテグラル・インベストメント</small></figcaption></figure>
+                                        <figure><img src="/img/judges/processed/son_tatsuhiro.jpg" alt="孫辰洋氏" loading="lazy"><figcaption>孫辰洋氏<small>リザプロ 代表取締役</small></figcaption></figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Pagination & Navigation -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ACCESS Section -->
+        <section id="access" class="company-section access-section">
+            <div class="c-inner">
+                <!-- 中央揃え -->
+                <div class="tp-title" data-aos="fade-up">
+                    <h2 class="tp-title_jp">ACCESS</h2>
+                    <p class="tp-title_en">アクセス</p>
+                    <hr class="contact-divider">
+                </div>
+                <div class="access-content" data-aos="fade-up" data-aos-delay="100">
+                    <div class="access-text">
+                        <p>
+                            〒169-0051<br>
+                            東京都新宿区西早稲田一丁目22番3号
+                        </p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.998493060152!2d139.7174731763171!3d35.7120730275811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d000a7e9b05%3A0xcacd971603ac30db!2z5pep56iy55Sw5aSn5a2mIDE5LTPlj7fppKgg44Ki44Oz44OI44Os44OX44Os44OK44O844K344OD44OX44K744Oz44K_44O8!5e0!3m2!1sja!2sjp!4v1723048596001!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="f">
+        <button class="f-toTop js-toTop" aria-label="TOPに戻る">
+            <svg class="svg svg-arrow"><use xlink:href="#arrow"></use></svg>
+        </button>
+        <div class="f-main">
+            <div class="c-inner f-main-inner">
+                <a class="f-logo-main" href="/" aria-label="Mobispace ホーム">
+                    <img src="/img/blocks_logo_white.png" alt="Mobispace フッターロゴ">
+                </a>
+                <p class="f-address">
+                    〒169-0051<br>
+                    東京都新宿区西早稲田1-22-3 早稲田大学内
+                </p>
+                <p class="f-copyright-main">© <span id="footer-year">2025</span> Mobispace Co., Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG Definitions -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+         <symbol id="arrow" viewBox="0 0 35 11"> <path d="M1 5.5h32M29 .5l5 5M29 10.5l5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </symbol>
+         <symbol id="blank" viewBox="0 0 14 14"> <path d="M3.971 1h8.579v9.947H3.971z" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="M1.418 2.553V13.5h9.579" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="m6 7.814 4-4M8.375 3.813s.756.07 1.625 0M10 5.437V3.813" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"></path> </symbol>
+         <symbol id="x" viewBox="0 0 24 24"> <path d="M18 6l-12 12M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </symbol>
+         
+      </defs>
+    </svg>
+
+    <!-- External Libraries JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/nav_ja.js"></script>
+
+    <!-- Custom Script & Initializations -->
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        window.addEventListener('load', () => { document.body.classList.remove('preload'); });
+        setTimeout(() => { document.body.classList.remove('preload'); }, 500);
+
+        const toTopButton = document.querySelector('.js-toTop');
+        if(toTopButton) {
+            window.addEventListener('scroll', () => { toTopButton.classList.toggle('is-visible', window.scrollY > 300); });
+            toTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+
+        // ========== Search Overlay Logic ==========
+        const openSearchBtn = document.getElementById('open-search');
+        const closeSearchBtn = document.getElementById('close-search');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchField = document.querySelector('.search-field');
+
+        if (openSearchBtn && closeSearchBtn && searchOverlay) {
+            openSearchBtn.addEventListener('click', () => {
+                searchOverlay.classList.add('is-active');
+                document.body.classList.add('no-scroll');
+                setTimeout(() => searchField && searchField.focus(), 300);
+            });
+
+            closeSearchBtn.addEventListener('click', () => {
+                searchOverlay.classList.remove('is-active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
+
+        // Handle anchor links
+        document.querySelectorAll('a[href^="/#"], a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                const isExternalAnchor = href.startsWith('/#');
+
+                if (isExternalAnchor) {
+                    e.preventDefault();
+                    window.location.href = `/${href.substring(1)}`;
+                } else {
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        if (spNavMenu && spNavMenu.classList.contains('is-open')) {
+                            spNavToggle.click();
+                        }
+                        
+                        const headerOffset = document.querySelector('.js-header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Initialize Awards Slider
+        if (document.querySelector('.js-awards-slider')) {
+            new Swiper('.js-awards-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            });
+        }
+
+        // ========== Contact Submission with Validation ==========
+        const form = document.getElementById('contact-form');
+        if (form) {
+            const formRenderedAt = Date.now();
+            let websiteField = form.querySelector('input[name="website"]');
+            if (!websiteField) {
+                websiteField = document.createElement('input');
+                websiteField.type = 'text';
+                websiteField.name = 'website';
+                websiteField.tabIndex = -1;
+                websiteField.autocomplete = 'off';
+                websiteField.style.position = 'absolute';
+                websiteField.style.left = '-9999px';
+                websiteField.style.opacity = '0';
+                websiteField.setAttribute('aria-hidden', 'true');
+                form.appendChild(websiteField);
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const submitButton = document.getElementById('submit-button');
+                const formStatus = document.getElementById('form-status');
+                
+                formStatus.innerHTML = '';
+                formStatus.className = '';
+
+                let isFormValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    const isCheckbox = field.type === 'checkbox';
+                    if ((isCheckbox && !field.checked) || (!isCheckbox && field.value.trim() === '')) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid || !form.checkValidity()) {
+                    formStatus.textContent = '必須項目をすべて入力し、チェックボックスにチェックを入れてください。';
+                    formStatus.classList.add('status-error');
+                    return;
+                }
+
+                if (websiteField.value.trim() !== '') {
+                    formStatus.textContent = '送信に失敗しました。入力内容をご確認ください。';
+                    formStatus.classList.add('status-error');
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.textContent = '送信中...';
+
+                const formData = new FormData(form);
+                const entries = Array.from(formData.entries());
+                const pick = (keys) => {
+                    for (const [key, value] of entries) {
+                        if (!value) continue;
+                        if (keys.includes(key)) return String(value).trim();
+                    }
+                    return '';
+                };
+
+                const payload = {
+                    source: 'company',
+                    name: pick(['name', 'お名前']),
+                    company: pick(['company', '会社名', '会社名・団体名']),
+                    department: pick(['department', '部署名']),
+                    position: pick(['position', '役職']),
+                    email: pick(['email', 'メールアドレス']),
+                    phone: pick(['phone', '電話番号']),
+                    inquiry: pick(['inquiry', 'message', 'お問い合わせ内容']),
+                    website: websiteField.value,
+                    submittedAt: formRenderedAt
+                };
+
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(result => {
+                    if (result && result.ok) {
+                        formStatus.textContent = 'お問い合わせありがとうございます。メッセージは正常に送信されました。';
+                        formStatus.classList.add('status-success');
+                        form.reset();
+                    } else {
+                        formStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+                        formStatus.classList.add('status-error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    formStatus.textContent = 'エラーが発生しました。管理者にお問い合わせください。';
+                    formStatus.classList.add('status-error');
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = '上記の内容で送信する';
+                });
+            });
+        }
+        // フッターの年号を自動更新
+        document.addEventListener("DOMContentLoaded", () => {
+            const yearSpan = document.getElementById("footer-year");
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

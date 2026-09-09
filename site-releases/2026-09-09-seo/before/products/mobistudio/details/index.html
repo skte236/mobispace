@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<!-- Google Analytics + cookie consent -->
+<script src="/js/consent.js"></script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiStudio - マシンビジョンAIラベリングソフトウェア | モビスペース株式会社</title>
+    <meta name="description" content="MobiStudioはLabel Studioベースの、日本発のマシンビジョンAIラベリングソフトウェアです。お客様と直接コミュニケーションを取り業務に合わせたツールを導入するため、Roboflowよりも柔軟なカスタマイズが可能な代替ツールです。カスタマイズ可能なラベリングUI、リアルタイムAI学習によるセミオート注釈、マスク・ベクター変換、チーム管理機能を搭載。インターフェースから直接、独自のAIモデルを作成・ダウンロードし、自社アプリケーションで利用可能。マシンビジョン・画像認識・物体検出・セグメンテーションの教師データ作成を効率化。">
+    <meta name="keywords" content="Roboflow 代替,Roboflow alternative,カスタマイズ可能なアノテーションソフトウェア,マシンビジョン,マシンビジョンソフトウェア,AIラベリングソフトウェア,アノテーションツール,ラベリングソフトウェア,AI学習,データアノテーション,画像認識,物体検出,セグメンテーション,Label Studio,機械学習,教師データ作成,MobiStudio">
+
+    <link rel="icon" href="/img/fabicon.png">
+    <link rel="canonical" href="https://mobispace.jp/products/mobistudio/details/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MobiStudio - マシンビジョンAIラベリングソフトウェア | モビスペース株式会社">
+    <meta property="og:description" content="完全カスタマイズ可能なUIとリアルタイムAIトレーニングで、アノテーション作業を劇的に効率化する、日本発のマシンビジョンAIラベリングソフトウェア。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mobispace.jp/products/mobistudio/details/">
+    <meta property="og:site_name" content="モビスペース株式会社">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "マシンビジョンAIラベリングソフトウェア",
+      "name": "MobiStudio",
+      "description": "完全カスタマイズ可能なUIとリアルタイムAIトレーニング機能を搭載した高機能アノテーションソフトウェア",
+      "provider": {
+        "@type": "Organization",
+        "name": "モビスペース株式会社"
+      },
+      "areaServed": "JP",
+      "url": "https://mobispace.jp/products/mobistudio/details/"
+    }
+    </script>
+
+    <style>
+      body.preload * { transition: none !important; }
+
+      .feature-list {
+          list-style: none;
+          padding: 0;
+      }
+      .feature-list li {
+          margin-bottom: 1rem;
+          padding-left: 1.5rem;
+          position: relative;
+      }
+      .feature-list li::before {
+          font-family: "Font Awesome 5 Free";
+          content: "\f00c";
+          font-weight: 900;
+          position: absolute;
+          left: 0;
+          color: var(--primary-color, #1FDFBC);
+      }
+
+      .grid-2, .grid-3 {
+          display: grid;
+          gap: 30px;
+          margin-top: 30px;
+      }
+      .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+      .problem-card {
+          background: #fff;
+          border: 1px solid #eee;
+          border-left: 5px solid #ff6b6b;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      .problem-icon {
+          color: #ff6b6b;
+          font-size: 2rem;
+          margin-bottom: 15px;
+      }
+
+      .solution-card {
+          background: #f9fbfd;
+          padding: 25px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid #e1e8ed;
+          transition: transform 0.3s;
+      }
+      .solution-card:hover { transform: translateY(-5px); }
+      .solution-icon {
+          color: var(--primary-color, #1FDFBC);
+          font-size: 3rem;
+          margin-bottom: 15px;
+          display: inline-block;
+      }
+
+      .comparison-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          background: #fff;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      .comparison-table th, .comparison-table td {
+          padding: 15px;
+          border-bottom: 1px solid #eee;
+          text-align: left;
+      }
+      .comparison-table th {
+          background: #f4f7f9;
+          font-weight: 700;
+          width: 40%;
+      }
+      .comparison-table td {
+          font-weight: 700;
+          color: #2c3e50;
+      }
+      .comparison-header {
+          background: #2c3e50 !important;
+          color: #fff;
+      }
+      .comparison-header.highlight {
+          background: var(--primary-color, #1FDFBC) !important;
+          color: #fff;
+      }
+
+      .spec-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          background: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          border: 1px solid #eee;
+      }
+      .spec-item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+      }
+      .spec-label {
+          font-size: 0.85rem;
+          color: #888;
+          font-weight: 700;
+      }
+      .spec-value {
+          font-size: 1.1rem;
+          font-weight: 700;
+      }
+
+      .detail-section { padding: 80px 0; }
+      .detail-section.bg-light { background-color: #fff; }
+      .section-headline {
+          text-align: center;
+          margin-bottom: 50px;
+          position: relative;
+          padding-bottom: 15px;
+      }
+      .section-headline-label {
+          display: block;
+          font-family: var(--heading-font);
+          font-weight: 700;
+          font-size: clamp(1rem, 2.2vw, 1.2rem);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+          background-image: linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+      }
+      .section-headline-main {
+          display: block;
+          font-size: clamp(2rem, 3.8vw, 2.6rem);
+          font-weight: 700;
+          color: #000;
+      }
+      .section-headline-main i {
+          margin-right: 10px;
+      }
+      .section-headline::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: #000;
+      }
+
+      .section-image-container {
+          margin: 40px auto;
+          max-width: 900px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .section-image-container img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+
+      /* AI Training Flow */
+      .training-flow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin: 40px 0;
+      }
+      .training-step {
+          background: #fff;
+          border: 2px solid #e1e8ed;
+          border-radius: 12px;
+          padding: 20px 15px;
+          text-align: center;
+          min-width: 140px;
+          flex: 1;
+          max-width: 200px;
+      }
+      .training-step.active {
+          border-color: var(--primary-color, #1FDFBC);
+          background: linear-gradient(135deg, rgba(31,223,188,0.05), rgba(31,223,188,0.1));
+      }
+      .training-step i {
+          font-size: 1.8rem;
+          margin-bottom: 8px;
+          display: block;
+      }
+      .training-step .step-label {
+          font-weight: 700;
+          font-size: 0.85rem;
+          margin-bottom: 4px;
+      }
+      .training-step .step-detail {
+          font-size: 0.75rem;
+          color: #666;
+      }
+      .training-arrow {
+          font-size: 1.5rem;
+          color: var(--primary-color, #1FDFBC);
+          font-weight: 700;
+      }
+      @media (max-width: 768px) {
+          .training-flow { flex-direction: column; }
+          .training-arrow { transform: rotate(90deg); }
+          .training-step { max-width: 100%; width: 100%; }
+      }
+
+      /* Stats placeholder */
+      .stats-image-placeholder {
+          background: #f0f4f8;
+          border: 2px dashed #ccd5de;
+          border-radius: 12px;
+          padding: 60px 30px;
+          text-align: center;
+          color: #888;
+          margin-top: 30px;
+      }
+      .stats-image-placeholder i {
+          font-size: 3rem;
+          margin-bottom: 15px;
+          display: block;
+      }
+
+      /* Org hierarchy */
+      .org-chart {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          margin-top: 30px;
+      }
+      .org-level {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+      .org-role {
+          background: #fff;
+          border: 2px solid #e1e8ed;
+          border-radius: 10px;
+          padding: 15px 25px;
+          text-align: center;
+          min-width: 150px;
+      }
+      .org-role.admin { border-color: #e74c3c; }
+      .org-role.sub-admin { border-color: #f39c12; }
+      .org-role.worker { border-color: #3498db; }
+      .org-role i {
+          font-size: 1.5rem;
+          margin-bottom: 8px;
+          display: block;
+      }
+      .org-role.admin i { color: #e74c3c; }
+      .org-role.sub-admin i { color: #f39c12; }
+      .org-role.worker i { color: #3498db; }
+      .org-connector {
+          width: 2px;
+          height: 20px;
+          background: #ddd;
+      }
+
+      /* tools.png shown as 3 horizontal panels (image is 3 stacked sections) */
+      .tools-panels {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          max-width: 900px;
+          margin: 36px auto 0;
+      }
+      .tools-panel {
+          background-image: url('/img/mobistudio/tools.png');
+          background-repeat: no-repeat;
+          background-size: 100% 300%;     /* show one vertical third per panel */
+          aspect-ratio: 767 / 684;
+          border-radius: 12px;
+          border: 1px solid #e1e8ed;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+          background-color: #1F2124;
+      }
+      @media (max-width: 700px) {
+          .tools-panels { grid-template-columns: 1fr; max-width: 320px; }
+      }
+
+      /* Topic anchor nav */
+      html { scroll-behavior: smooth; }
+      [id] { scroll-margin-top: 90px; }
+      .topic-nav {
+          position: sticky;
+          top: var(--header-height, 75px);
+          z-index: 20;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(8px);
+          border-bottom: 1px solid #e1e8ed;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .topic-nav-inner {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 12px 0;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+      }
+      @media (max-width: 640px) {
+          .topic-nav-inner { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; }
+      }
+      .topic-nav a {
+          flex: 0 0 auto;
+          padding: 8px 16px;
+          border-radius: 50px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: #2c3e50;
+          text-decoration: none;
+          border: 1px solid #e1e8ed;
+          background: #fff;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+      }
+      .topic-nav a:hover {
+          background: var(--primary-color, #1FDFBC);
+          border-color: var(--primary-color, #1FDFBC);
+          color: #1F2124;
+      }
+      .topic-nav a i { margin-right: 6px; }
+    </style>
+</head>
+<body class="subpage preload">
+
+<header class="h js-header" id="header-placeholder"></header>
+
+    <!-- Page Header -->
+    <section class="page-title-section">
+        <div class="c-inner">
+            <div class="page-title-content" data-aos="fade-up">
+                <img src="/img/mobistudio/mobistudio_logo_white.png" alt="MobiStudio" style="height: 56px; width: auto; margin: 0 auto 18px; display: block;">
+                <h1 class="tp-title_jp" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;">MobiStudio</h1>
+                <p class="tp-title_en">AIトレーニングを、完全にあなたの手で。<br>フルコントロールのアノテーション環境</p>
+                <p class="page-header-desc">MobiStudioは、Label Studioベースの日本発マシンビジョンAIラベリングソフトウェアです。お客様と直接コミュニケーションを取り、業務に合わせたツールをカスタマイズして導入するため、Roboflowよりも柔軟なカスタマイズが可能な代替ツールです。柔軟なUI設計、リアルタイムAIアシスト、チーム管理を一つのプラットフォームで実現する高機能ラベリングツールです。</p>
+            </div>
+
+            <nav class="breadcrumbs" aria-label="パンくずリスト" data-aos="fade-up" data-aos-delay="100">
+                <ol>
+                    <li><a href="/"><i class="fas fa-home"></i> TOP</a></li>
+                    <li><a href="/products/">プロダクト事業</a></li>
+                    <li><a href="/products/mobistudio/landing/">MobiStudio</a></li>
+                    <li>製品詳細</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Topic anchor nav -->
+    <nav class="topic-nav" aria-label="トピック">
+        <div class="c-inner topic-nav-inner">
+            <a href="#customizable"><i class="fas fa-sliders-h"></i>カスタマイズUI</a>
+            <a href="#training"><i class="fas fa-brain"></i>AIトレーニング</a>
+            <a href="#vector"><i class="fas fa-draw-polygon"></i>ベクトル検出</a>
+            <a href="#statistics"><i class="fas fa-chart-bar"></i>作業統計</a>
+            <a href="#organization"><i class="fas fa-users-cog"></i>組織管理</a>
+            <a href="#comparison"><i class="fas fa-balance-scale"></i>比較</a>
+            <a href="#ticket"><i class="fas fa-headset"></i>カスタムツール</a>
+        </div>
+    </nav>
+
+    <!-- 1. 完全カスタマイズ可能なインターフェース -->
+    <section class="detail-section" id="customizable">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">CUSTOMIZABLE UI</span>
+                <span class="section-headline-main"><i class="fas fa-sliders-h" style="color:#9b59b6;"></i>完全カスタマイズ可能なUI</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">プロジェクトの要件に合わせてインターフェースを自由に設計。<br>ボタン配置、メニュー構成、表示設定まで、すべてをあなたのワークフローに最適化できます。</p>
+
+            <div class="grid-3" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h3>カスタムボタン作成</h3>
+                    <p>プロジェクトに必要なボタンを自由に追加。ラベルの種類・ショートカット・配置を要件に合わせて構成できます。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>メニュー・設定のカスタマイズ</h3>
+                    <p>メニュー構成や動作設定をプロジェクト単位で柔軟に変更可能。画像の表示高さ調整やラベルプレビューの表示数も自由に設定。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-forward"></i></div>
+                    <h3>自動ナビゲーション</h3>
+                    <p>アノテーション送信後の自動ページ遷移（次へ/前へ）を設定可能。作業中の手動操作を削減し、集中力を維持します。</p>
+                </div>
+            </div>
+
+            <p style="text-align:center; margin:50px auto 0; max-width:760px;" data-aos="fade-up">
+                ブラシサイズや高速ラッソ塗りつぶしなど、作業に必要なツールをプロジェクトごとにパネルへ配置。
+                現場の作業フローに合わせて、最適な操作環境を構築できます。
+            </p>
+            <div class="tools-panels" data-aos="fade-up" role="img"
+                 aria-label="MobiStudio カスタマイズ可能なツールパネル（進捗情報・ブラシ/高速ラッソ塗りつぶし・領域管理）">
+                <div class="tools-panel" style="background-position: center top;"></div>
+                <div class="tools-panel" style="background-position: center center;"></div>
+                <div class="tools-panel" style="background-position: center bottom;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. リアルタイムAIトレーニング -->
+    <section class="detail-section bg-light" id="training">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">AI-ASSISTED TRAINING</span>
+                <span class="section-headline-main"><i class="fas fa-brain" style="color:#1FDFBC;"></i>リアルタイムAIトレーニング</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">アノテーション作業の途中でAIモデルをトレーニングし、残りの作業をAIがアシスト。<br>チェックポイントに到達するたびにモデルの精度が向上し、人手の作業量が段階的に減少します。</p>
+
+            <!-- Training Flow Diagram -->
+            <div class="training-flow" data-aos="fade-up">
+                <div class="training-step">
+                    <i class="fas fa-hand-pointer" style="color:#e74c3c;"></i>
+                    <div class="step-label">手動アノテーション</div>
+                    <div class="step-detail">100% 人間</div>
+                </div>
+                <div class="training-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="training-step active">
+                    <i class="fas fa-graduation-cap" style="color:#1FDFBC;"></i>
+                    <div class="step-label">1回目トレーニング</div>
+                    <div class="step-detail">チェックポイント到達</div>
+                </div>
+                <div class="training-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="training-step">
+                    <i class="fas fa-user-cog" style="color:#f39c12;"></i>
+                    <div class="step-label">AI＋人間</div>
+                    <div class="step-detail">50% AI / 50% 人間</div>
+                </div>
+                <div class="training-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="training-step active">
+                    <i class="fas fa-graduation-cap" style="color:#1FDFBC;"></i>
+                    <div class="step-label">2回目トレーニング</div>
+                    <div class="step-detail">250枚到達で再学習</div>
+                </div>
+                <div class="training-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="training-step">
+                    <i class="fas fa-robot" style="color:#3498db;"></i>
+                    <div class="step-label">AIメイン</div>
+                    <div class="step-detail">95% AI / 5% 人間</div>
+                </div>
+            </div>
+
+            <div class="grid-3" style="margin-top:50px;" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>段階的学習アプローチ</h3>
+                    <p>チェックポイントごとにトレーニングを実行。モデル精度が向上するにつれ、人手のアノテーション比率が減少。1000枚のデータセットでも、実質的な手作業は初期の150枚程度に抑えられます。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-download"></i></div>
+                    <h3>独自AIモデルの作成・ダウンロード</h3>
+                    <p>MobiStudioのインターフェースから直接、独自のAIモデルを学習・作成し、学習済みモデルをダウンロードして自社アプリケーションで利用できます。外部パイプラインは不要。ラベリングからデプロイ可能なマシンビジョンモデルまで、一つの環境で完結します。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>マスク⇔ベクター変換</h3>
+                    <p>セグメンテーションマスクからベクターデータへ、またその逆への変換をシームレスに実行。用途に応じた最適なデータ形式を選択できます。</p>
+                </div>
+            </div>
+
+            <!-- Example workflow -->
+            <div style="max-width:700px; margin:40px auto 0; background:#fff; padding:30px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);" data-aos="fade-up">
+                <h4 style="font-weight:700; margin-bottom:15px; text-align:center;"><i class="fas fa-lightbulb" style="color:#f39c12; margin-right:8px;"></i>実例：1000枚画像のアノテーション</h4>
+                <table class="comparison-table" style="box-shadow:none;">
+                    <tbody>
+                        <tr>
+                            <th>Phase 1</th>
+                            <td>150枚を手動アノテーション → 1回目モデルトレーニング</td>
+                        </tr>
+                        <tr>
+                            <th>Phase 2</th>
+                            <td>AI予測を確認・修正（50%人間 / 50%AI） → 250枚到達で再トレーニング</td>
+                        </tr>
+                        <tr>
+                            <th>Phase 3</th>
+                            <td>高精度AIが大半を処理（95%AI / 5%人間確認）→ 完了</td>
+                        </tr>
+                        <tr>
+                            <th style="color:#1FDFBC;">結果</th>
+                            <td style="color:#1FDFBC;">作業時間を最大80%削減</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="text-align:center; margin:50px auto 0; max-width:760px;" data-aos="fade-up">
+                物体検出・セマンティックセグメンテーションのモデルを、画面から直接トレーニング。
+                YOLOバージョン・サイズ・解像度・学習クラスを選ぶだけで、学習を開始できます。
+            </p>
+            <div class="section-image-container" style="max-width:560px;" data-aos="fade-up">
+                <img src="/img/mobistudio/training.png" alt="MobiStudio トレーニング設定画面（物体検出・YOLO・クラス選択）">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2b. ベクトルによる物体検出 -->
+    <section class="detail-section" id="vector">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">VECTOR DETECTION</span>
+                <span class="section-headline-main"><i class="fas fa-draw-polygon" style="color:#1FDFBC;"></i>ベクトルポリゴンによる物体検出</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">
+                矩形のバウンディングボックスだけでなく、<strong>調整ノブ付きのベクトルポリゴン</strong>で物体検出が可能。<br>
+                対象の輪郭にぴったり沿った高精度なアノテーションを、ノブをドラッグするだけで微調整できます。
+            </p>
+
+            <div class="section-image-container" style="max-width:480px;" data-aos="fade-up">
+                <img src="/img/mobistudio/vector%20location.png" alt="MobiStudio ベクトルポリゴンによる物体検出（AI自動ベクトル推定・ノブで調整）">
+            </div>
+
+            <div class="grid-3" style="margin-top:50px;" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-vector-square"></i></div>
+                    <h3>ノブで調整できるポリゴン</h3>
+                    <p>各頂点に配置されたノブをドラッグして、ポリゴンの形状を自在に調整。対象物の輪郭に正確にフィットさせられます。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-magic"></i></div>
+                    <h3>AI自動ベクトル推定</h3>
+                    <p>AIが対象物を検出し、ベクトルポリゴンを自動生成。あとは微調整するだけで、高精度なアノテーションが完成します。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>輪郭に沿った高精度検出</h3>
+                    <p>矩形では捉えきれない複雑な形状も、ベクトルポリゴンなら正確に。検査・計測用途の物体検出に最適です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 作業統計 -->
+    <section class="detail-section" id="statistics">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">STATISTICS</span>
+                <span class="section-headline-main"><i class="fas fa-chart-bar" style="color:#3498db;"></i>作業統計ダッシュボード</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">プロジェクトの進捗状況、個人ごとのアノテーション数、品質指標をリアルタイムで可視化。<br>データに基づいたプロジェクト管理を実現します。</p>
+
+            <div class="grid-3" data-aos="fade-up">
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h4 style="font-weight:700;">プロジェクト進捗</h4>
+                    <p style="font-size:0.9rem;">全体の完了率・残タスク数をリアルタイム表示。締切管理を支援します。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-user-clock"></i></div>
+                    <h4 style="font-weight:700;">個人パフォーマンス</h4>
+                    <p style="font-size:0.9rem;">メンバーごとのアノテーション数・速度・品質スコアを比較分析。</p>
+                </div>
+                <div class="solution-card" style="background:#fff; border:none; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <div class="solution-icon"><i class="fas fa-check-double"></i></div>
+                    <h4 style="font-weight:700;">品質モニタリング</h4>
+                    <p style="font-size:0.9rem;">一致率・修正率などの品質指標を追跡し、アノテーション基準の一貫性を確保。</p>
+                </div>
+            </div>
+
+            <div class="section-image-container" data-aos="fade-up">
+                <img src="/img/mobistudio/statistics.png" alt="MobiStudio 統計ダッシュボード画面">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 組織管理 -->
+    <section class="detail-section bg-light" id="organization">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">ORGANIZATION</span>
+                <span class="section-headline-main"><i class="fas fa-users-cog" style="color:#e74c3c;"></i>組織管理</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">管理者・サブ管理者・作業者の階層構造で、プロジェクトのアクセス権限を細かく制御。<br>誰が何をできるかを明確に定義し、大規模チームでの共同作業を安全に管理します。</p>
+
+            <!-- Org Chart -->
+            <div class="org-chart" data-aos="fade-up">
+                <div class="org-level">
+                    <div class="org-role admin">
+                        <i class="fas fa-crown"></i>
+                        <div style="font-weight:700;">管理者（Admin）</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">全権限・プロジェクト作成・編集</div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-role sub-admin">
+                        <i class="fas fa-user-shield"></i>
+                        <div style="font-weight:700;">サブ管理者</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">プロジェクト管理・メンバー監督</div>
+                    </div>
+                    <div class="org-role sub-admin">
+                        <i class="fas fa-user-shield"></i>
+                        <div style="font-weight:700;">サブ管理者</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">統計確認・品質管理</div>
+                    </div>
+                </div>
+                <div class="org-connector"></div>
+                <div class="org-level">
+                    <div class="org-role worker">
+                        <i class="fas fa-user"></i>
+                        <div style="font-weight:700;">作業者</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">アノテーション実行</div>
+                    </div>
+                    <div class="org-role worker">
+                        <i class="fas fa-user"></i>
+                        <div style="font-weight:700;">作業者</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">アノテーション実行</div>
+                    </div>
+                    <div class="org-role worker">
+                        <i class="fas fa-user"></i>
+                        <div style="font-weight:700;">作業者</div>
+                        <div style="font-size:0.8rem; color:#666; margin-top:5px;">アノテーション実行</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-top:50px;" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-lock"></i></div>
+                    <h3>権限管理</h3>
+                    <p>プロジェクトの作成・編集権限を役割ごとに制御。作業者が誤ってプロジェクト設定を変更するリスクを排除します。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>アノテーション実績追跡</h3>
+                    <p>メンバーごとのアノテーション数をリアルタイムで確認。作業配分の調整や進捗管理に活用できます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 従来ツールとの比較 -->
+    <section class="detail-section" id="comparison">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">COMPARISON</span>
+                <span class="section-headline-main"><i class="fas fa-balance-scale" style="color:#3498db;"></i>従来ツールとの比較</span>
+            </h2>
+            <div data-aos="fade-up">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="comparison-header">一般的なラベリングツール</th>
+                            <th class="comparison-header highlight">MobiStudio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>固定UI → プロジェクトに合わせて妥協</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> UIを完全カスタマイズ、ワークフローに最適化</td>
+                        </tr>
+                        <tr>
+                            <td>全件手動アノテーション → 時間とコスト膨大</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 途中からAIアシスト、作業量80%削減</td>
+                        </tr>
+                        <tr>
+                            <td>トレーニングは別ツール → ワークフロー分断</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> アノテーション＋トレーニングを一体化</td>
+                        </tr>
+                        <tr>
+                            <td>進捗管理は手動で集計</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 統計ダッシュボードで自動可視化</td>
+                        </tr>
+                        <tr>
+                            <td>権限管理が不十分</td>
+                            <td><i class="fas fa-check-circle" style="color:#1FDFBC;"></i> 管理者/サブ管理者/作業者の階層制御</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5b. チケットシステム / カスタムツール開発 -->
+    <section class="detail-section bg-light" id="ticket">
+        <div class="c-inner">
+            <h2 class="section-headline" data-aos="fade-up">
+                <span class="section-headline-label">CUSTOM TOOLS</span>
+                <span class="section-headline-main"><i class="fas fa-headset" style="color:#f39c12;"></i>チケットで依頼、24時間でカスタムツール</span>
+            </h2>
+            <p style="text-align:center; margin-bottom:40px;" data-aos="fade-up">
+                「こんなツールが欲しい」をチケットで開発チームに直接リクエスト。<br>
+                最短<strong>24時間</strong>で、お客様の作業に特化したカスタムツールを実装してお届けします。
+            </p>
+
+            <div class="grid-3" data-aos="fade-up">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h3>開発者へ直接リクエスト</h3>
+                    <p>チケットシステムを通じて、必要なツールや機能を開発チームへ直接依頼。要望が現場の言葉のまま伝わります。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>最短24時間で実装</h3>
+                    <p>例：投げ縄（ラッソ）ツールや、コントロールノブ付きの六角形ポリゴンなど、特定形状の専用ツールを迅速に追加します。</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-shapes"></i></div>
+                    <h3>形状特化のカスタムツール</h3>
+                    <p>対象物に合わせた専用アノテーションツールを構築。ノブで調整可能な多角形ツールなど、現場の要件に合わせて拡張できます。</p>
+                </div>
+            </div>
+
+            <div style="max-width:700px; margin:40px auto 0; background:#fff; padding:30px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);" data-aos="fade-up">
+                <h4 style="font-weight:700; margin-bottom:15px; text-align:center;"><i class="fas fa-lightbulb" style="color:#f39c12; margin-right:8px;"></i>カスタムツールの例</h4>
+                <ul class="feature-list">
+                    <li>投げ縄（ラッソ）ツール — 複雑な輪郭を自由曲線で素早く囲む</li>
+                    <li>コントロールノブ付き六角形ポリゴン — 特定形状を正確に、ノブで微調整</li>
+                    <li>対象物に特化した塗りつぶし・選択ツール</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+    <div class="c-inner" data-aos="zoom-in">
+        <h2 class="cta-title">アノテーション作業を、もっと速く、もっとスマートに。</h2>
+        <p class="cta-text">MobiStudioの導入相談やデモのご依頼を承っています。<br>お客様のプロジェクト規模に合わせた最適なプランをご提案します。</p>
+        <a href="/contact/" class="c-button contact-cta-btn btn-animated">
+            <span class="c-button_label contact-cta-btn_label">デモ依頼・お問い合わせ</span>
+        </a>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="f">
+        <button class="f-toTop js-toTop" aria-label="TOPに戻る">
+            <svg class="svg svg-arrow"><use xlink:href="#arrow"></use></svg>
+        </button>
+        <div class="f-main">
+            <div class="c-inner f-main-inner">
+                <a class="f-logo-main" href="/" aria-label="Mobispace ホーム">
+                    <img src="/img/blocks_logo_white.png" alt="Mobispace フッターロゴ">
+                </a>
+                <p class="f-address">
+                    〒169-0051<br>
+                    東京都新宿区西早稲田1-22-3 早稲田大学内
+                </p>
+                <p class="f-copyright-main">© <span id="footer-year">2025</span> Mobispace Co., Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG Definitions -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+         <symbol id="arrow" viewBox="0 0 35 11"> <path d="M1 5.5h32M29 .5l5 5M29 10.5l5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </symbol>
+         <symbol id="blank" viewBox="0 0 14 14"> <path d="M3.971 1h8.579v9.947H3.971z" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="M1.418 2.553V13.5h9.579" stroke="currentColor" stroke-width="1" fill="none"></path> <path d="m6 7.814 4-4M8.375 3.813s.756.07 1.625 0M10 5.437V3.813" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"></path> </symbol>
+      </defs>
+    </svg>
+
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/nav_ja.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        window.addEventListener('load', () => { document.body.classList.remove('preload'); });
+    </script>
+</body>
+</html>
